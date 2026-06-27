@@ -9,6 +9,9 @@
   programs.home-manager.enable = true;
 
   home.packages = [
+
+    # console utilities
+
     pkgs.zsh
     pkgs.fish
     pkgs.nnn
@@ -16,14 +19,22 @@
     pkgs.htop
     pkgs.tree
     pkgs.btop
-    pkgs.vscode
-    pkgs.obsidian
-    pkgs.floorp-bin
-    pkgs.chromium
-    pkgs.telegram-desktop
-    pkgs.postman
-    pkgs.insomnia
     pkgs.fzf
     pkgs.ripgrep
+    pkgs.eza
+    pkgs.pass
+
+    # gui apps
+
+    # pkgs.ardour
+    pkgs.qtractor
+    pkgs.qjackctl
+    pkgs.calf
+    pkgs.kdePackages.kdenlive
+    pkgs.telegram-desktop
+    pkgs.floorp-bin
+    pkgs.google-chrome
+    pkgs.obsidian
+    pkgs.postman
   ];
 }
