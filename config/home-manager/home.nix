@@ -25,10 +25,16 @@
     pkgs.pass
     pkgs.nmap
     pkgs.ncdu
+    pkgs.sshpass
 
     # dev
     pkgs.nodejs_26
-    pkgs.gopls
+
+    # golang
+    pkgs.go
+    # Optional: tools like gopls (language server) or gotools
+    pkgs.gopls 
+    pkgs.gotools
 
     # fonts
     pkgs.nerd-fonts.iosevka-term
