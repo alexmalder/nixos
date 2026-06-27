@@ -24,6 +24,10 @@
     pkgs.eza
     pkgs.pass
 
+    # fonts
+
+    pkgs.nerd-fonts.iosevka-term
+
     # gui apps
 
     # pkgs.ardour
