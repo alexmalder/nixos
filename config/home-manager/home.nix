@@ -15,7 +15,7 @@
     pkgs.fish
     pkgs.nnn
     pkgs.neovim
-    pkgs.zoxide
+    pkgs.zoxide 
     pkgs.htop
     pkgs.tree
     pkgs.btop
@@ -26,9 +26,13 @@
     pkgs.nmap
     pkgs.ncdu
     pkgs.sshpass
+    pkgs.ctop
+    pkgs.k9s
 
     # dev
     pkgs.nodejs_26
+    pkgs.yaml-language-server
+    pkgs.bash-language-server
 
     # golang
     pkgs.go
