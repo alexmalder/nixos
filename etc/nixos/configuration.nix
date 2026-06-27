@@ -46,6 +46,20 @@
   # You can disable this if you're only using the Wayland session.
   services.xserver.enable = true;
 
+  # videocard setup start
+
+  services.xserver.videoDrivers = [ "nvidia" ];
+
+  hardware.nvidia = {
+    package = config.boot.kernelPackages.nvidiaPackages.legacy_470;
+    modesetting.enable = true; # Required
+  };
+
+  # Enable OpenGL
+  hardware.graphics.enable = true;
+
+  # videocard setup end
+
   # Enable the KDE Plasma Desktop Environment.
   services.displayManager.sddm.enable = true;
   services.desktopManager.plasma6.enable = true;
@@ -94,6 +108,9 @@
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
+
+  # Nvidia accept lic
+  nixpkgs.config.nvidia.acceptLicense = true;
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
