@@ -1,15 +1,18 @@
 #!/run/current-system/sw/bin/bash
 
+
+diff_cmd="diff -r --color"
+
 # nix general config
 
-diff -r /etc/nixos etc/nixos
+$diff_cmd etc/nixos /etc/nixos
 
 # nix packages settings
-diff -r $HOME/.config/nixpkgs/config.nix ./config/nixpkgs/config.nix
+$diff_cmd config/nixpkgs $HOME/.config/nixpkgs
 
 # nix home-manager config
-diff -r $HOME/.config/home-manager/home.nix ./config/home-manager/home.nix
+$diff_cmd config/home-manager $HOME/.config/home-manager
 
 # dotfiles
-diff -r $HOME/.config/nvim ./config/nvim
-diff -r $HOME/.config/fish/config.fish ./config/fish/config.fish
+$diff_cmd config/nvim $HOME/.config/nvim
+$diff_cmd config/fish/config.fish $HOME/.config/fish/config.fish 

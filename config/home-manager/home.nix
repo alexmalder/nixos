@@ -11,11 +11,11 @@
   home.packages = [
 
     # console utilities
-
     pkgs.zsh
     pkgs.fish
     pkgs.nnn
     pkgs.neovim
+    pkgs.zoxide
     pkgs.htop
     pkgs.tree
     pkgs.btop
@@ -23,14 +23,18 @@
     pkgs.ripgrep
     pkgs.eza
     pkgs.pass
+    pkgs.nmap
+    pkgs.ncdu
+
+    # dev
+    pkgs.nodejs_26
+    pkgs.gopls
 
     # fonts
-
     pkgs.nerd-fonts.iosevka-term
 
     # gui apps
-
-    # pkgs.ardour
+    pkgs.ardour
     pkgs.qtractor
     pkgs.qjackctl
     pkgs.calf
@@ -40,5 +44,6 @@
     pkgs.google-chrome
     pkgs.obsidian
     pkgs.postman
+    pkgs.vscode
   ];
 }
