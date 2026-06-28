@@ -46,7 +46,7 @@
     # gui apps
     pkgs.ardour
     pkgs.qtractor
-    pkgs.qjackctl
+    #pkgs.qjackctl
     pkgs.calf
     pkgs.kdePackages.kdenlive
     pkgs.telegram-desktop
@@ -56,4 +56,5 @@
     pkgs.postman
     pkgs.vscode
   ];
+
 }

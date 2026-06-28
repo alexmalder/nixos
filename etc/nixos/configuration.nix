@@ -46,20 +46,6 @@
   # You can disable this if you're only using the Wayland session.
   services.xserver.enable = true;
 
-  # videocard setup start
-
-  services.xserver.videoDrivers = [ "nvidia" ];
-
-  hardware.nvidia = {
-    package = config.boot.kernelPackages.nvidiaPackages.legacy_470;
-    modesetting.enable = true; # Required
-  };
-
-  # Enable OpenGL
-  hardware.graphics.enable = true;
-
-  # videocard setup end
-
   # Enable the KDE Plasma Desktop Environment.
   services.displayManager.sddm.enable = true;
   services.desktopManager.plasma6.enable = true;
@@ -82,7 +68,7 @@
     alsa.support32Bit = true;
     pulse.enable = true;
     # If you want to use JACK applications, uncomment this
-    #jack.enable = true;
+    jack.enable = true;
 
     # use the example session manager (no others are packaged yet so this is enabled by default,
     # no need to redefine it in your config for now)
@@ -96,7 +82,7 @@
   users.users."alexmalder" = {
     isNormalUser = true;
     description = "alexmalder";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [ "networkmanager" "wheel" "docker" ];
     packages = with pkgs; [
       kdePackages.kate
     #  thunderbird
@@ -118,6 +104,8 @@
     wget
     git
     vim
+    qjackctl
+    docker-compose
   ];
 
 
@@ -150,4 +138,13 @@
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
+  # Setup docker
+  virtualisation.docker.enable = true;
+
+  # setup wallpaper
+  # systemd.user.services.set-wallpaper = {
+  #   description = "Set KDE Plasma wallpaper";
+  #   serviceConfig.ExecStart = [ "/run/current-system/sw/bin/plasma-apply-wallpaperimage /home/alexmalder/Pictures/Wallpapers/background.jpg" ];
+  #   wantedBy = [ "graphical-session.target" ];
+  # };
 }
