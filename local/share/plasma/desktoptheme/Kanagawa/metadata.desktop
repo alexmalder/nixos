@@ -1,0 +1,22 @@
+[AdaptiveTransparency]
+enabled=true
+
+[ContrastEffect]
+contrast=0.2
+enabled=false
+intensity=0.4
+saturation=1.7
+
+[Desktop Entry]
+X-KDE-PluginInfo-Version=1.0.0
+
+[DesktopEntry]
+Comment=Enjoy the Kanagawa theme.
+Name=Kanagawa
+X-KDE-PluginInfo-Author=JayyDev
+X-KDE-PluginInfo-Email=none25711@gmail.com
+X-KDE-PluginInfo-License=MIT
+X-KDE-PluginInfo-Name=Kanagawa
+X-KDE-PluginInfo-Version=1
+X-KDE-PluginInfo-Website=https://github.com/Jayy-Dev/Kanagawa-KDE
+X-Plasma-API=5.0
