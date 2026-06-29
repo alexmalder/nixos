@@ -46,15 +46,21 @@
     # gui apps
     pkgs.ardour
     pkgs.qtractor
-    #pkgs.qjackctl
-    pkgs.calf
-    pkgs.kdePackages.kdenlive
+    # pkgs.qjackctl # moved to /etc/nixos/configuration.nix
+    # pkgs.calf # interface bug: crash dump
     pkgs.telegram-desktop
     pkgs.floorp-bin
     pkgs.google-chrome
     pkgs.obsidian
     pkgs.postman
     pkgs.vscode
+    pkgs.bluemail
+
+    # experimental
+    pkgs.woeusb
+    pkgs.bitwig-studio5
+    # pkgs.wine64
+    # pkgs.winePackages.full
   ];
 
 }

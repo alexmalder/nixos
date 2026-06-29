@@ -46,7 +46,6 @@
   # You can disable this if you're only using the Wayland session.
   services.xserver.enable = true;
 
-  # Enable the KDE Plasma Desktop Environment.
   services.displayManager.sddm.enable = true;
   services.desktopManager.plasma6.enable = true;
 
@@ -85,7 +84,10 @@
     extraGroups = [ "networkmanager" "wheel" "docker" ];
     packages = with pkgs; [
       kdePackages.kate
-    #  thunderbird
+      kdePackages.qtmultimedia
+      kdePackages.kmail
+      kdePackages.kdenlive
+      kdePackages.ktorrent
     ];
   };
 
@@ -106,6 +108,7 @@
     vim
     qjackctl
     docker-compose
+    kitty
   ];
 
 
@@ -143,8 +146,23 @@
 
   # setup wallpaper
   # systemd.user.services.set-wallpaper = {
+  #   enable = true;
   #   description = "Set KDE Plasma wallpaper";
-  #   serviceConfig.ExecStart = [ "/run/current-system/sw/bin/plasma-apply-wallpaperimage /home/alexmalder/Pictures/Wallpapers/background.jpg" ];
+  #   after = [ "graphical-session.target" ];
   #   wantedBy = [ "graphical-session.target" ];
+  #   serviceConfig = {
+  #     Type = "simple";
+  #     ExecStart = [ "/run/current-system/sw/bin/plasma-apply-wallpaperimage /home/alexmalder/Pictures/Wallpapers/background.jpg" ];
+  #     Restart = "on-failure";
+  #   };
   # };
+
+
+  # Enable the Hyprland system module
+  # programs.hyprland = {
+  #   enable = true;
+  #   xwayland.enable = true; # Optional: for legacy X11 app support
+  # };
+  # environment.sessionVariables.NIXOS_OZONE_WL = "1";
+
 }
