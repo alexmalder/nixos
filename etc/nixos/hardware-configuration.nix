@@ -7,30 +7,32 @@
   imports =
     [ (modulesPath + "/installer/scan/not-detected.nix")
     ];
-boot.initrd.availableKernelModules = [ "xhci_pci" "ahci" "uas" "usbhid" "sd_mod" ];
+
+  boot.initrd.availableKernelModules = [ "xhci_pci" "ahci" "uas" "usbhid" "sd_mod" ];
   boot.initrd.kernelModules = [ ];
   boot.kernelModules = [ ];
   boot.extraModulePackages = [ ];
 
   fileSystems."/" =
-    { device = "/dev/disk/by-uuid/9f6fc0cc-5124-4879-9d23-f5c025c4c251";
+    { device = "/dev/disk/by-uuid/4b8c33d1-5edb-4f63-9bbf-f0dd0fd57308";
       fsType = "ext4";
     };
 
   fileSystems."/boot" =
-    { device = "/dev/disk/by-uuid/9B8C-222A";
+    { device = "/dev/disk/by-uuid/B783-81BE";
       fsType = "vfat";
       options = [ "fmask=0077" "dmask=0077" ];
     };
 
   swapDevices =
-    [ { device = "/dev/disk/by-uuid/b81ff910-3bdd-4dd5-abff-9da2ec9d9b74"; }
+    [ { device = "/dev/disk/by-uuid/ba730ef1-2d0d-4a56-bc1e-729fcc31912a"; }
     ];
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
   hardware.cpu.intel.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
 
-  # videocard setup start
+  # Nvidia setup start
+  nixpkgs.config.nvidia.acceptLicense = true;
 
   services.xserver.videoDrivers = [ "nvidia" ];
 
@@ -42,5 +44,5 @@ boot.initrd.availableKernelModules = [ "xhci_pci" "ahci" "uas" "usbhid" "sd_mod"
   # Enable OpenGL
   hardware.graphics.enable = true;
 
-  # videocard setup end
+  # Nvidia setup end
 }

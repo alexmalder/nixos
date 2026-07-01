@@ -3,10 +3,11 @@
 {
   home.username = "alexmalder";
   home.homeDirectory = "/home/alexmalder"; # use "/Users/YOUR_USERNAME" on macOS
-  home.stateVersion = "26.11"; # Match to the Nixpkgs version you are using
-  home.enableNixpkgsReleaseCheck = false;
+  #home.stateVersion = "26.11"; # Match to the Nixpkgs version you are using
+  home.stateVersion = "26.05";
 
-  programs.home-manager.enable = true;
+  #home.enableNixpkgsReleaseCheck = false;
+  #programs.home-manager.enable = true;
 
   home.packages = [
 
@@ -30,7 +31,6 @@
     pkgs.k9s
 
     # dev
-    pkgs.nodejs_26
     pkgs.yaml-language-server
     pkgs.bash-language-server
 
@@ -44,23 +44,17 @@
     pkgs.nerd-fonts.iosevka-term
 
     # gui apps
-    pkgs.ardour
-    pkgs.qtractor
-    # pkgs.qjackctl # moved to /etc/nixos/configuration.nix
-    # pkgs.calf # interface bug: crash dump
     pkgs.telegram-desktop
     pkgs.floorp-bin
     pkgs.google-chrome
     pkgs.obsidian
-    pkgs.postman
     pkgs.vscode
-    pkgs.bluemail
 
-    # experimental
-    pkgs.woeusb
-    pkgs.bitwig-studio5
-    # pkgs.wine64
-    # pkgs.winePackages.full
+    # kde user apps
+    pkgs.kdePackages.kdenlive
+    pkgs.kdePackages.ktorrent
+    pkgs.kdePackages.kmail
+    pkgs.kdePackages.kdepim-runtime # Required for Akonadi agents and mail sync
+    pkgs.kdePackages.akonadi        # Core email database and control service
   ];
-
 }
