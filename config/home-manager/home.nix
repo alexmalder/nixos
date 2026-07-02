@@ -12,6 +12,7 @@
   home.packages = [
 
     # console utilities
+    pkgs.wget
     pkgs.zsh
     pkgs.fish
     pkgs.nnn
@@ -29,6 +30,7 @@
     pkgs.sshpass
     pkgs.ctop
     pkgs.k9s
+    pkgs.dpkg
 
     # dev
     pkgs.yaml-language-server
@@ -39,9 +41,9 @@
     # Optional: tools like gopls (language server) or gotools
     pkgs.gopls 
     pkgs.gotools
-
     # fonts
     pkgs.nerd-fonts.iosevka-term
+    pkgs.nerd-fonts.ubuntu
 
     # gui apps
     pkgs.telegram-desktop
@@ -49,6 +51,7 @@
     pkgs.google-chrome
     pkgs.obsidian
     pkgs.vscode
+    pkgs.zed-editor
 
     # kde user apps
     pkgs.kdePackages.kdenlive
@@ -56,5 +59,8 @@
     pkgs.kdePackages.kmail
     pkgs.kdePackages.kdepim-runtime # Required for Akonadi agents and mail sync
     pkgs.kdePackages.akonadi        # Core email database and control service
+
+    # music
+    pkgs.bitwig-studio5
   ];
 }
