@@ -46,7 +46,11 @@
   # You can disable this if you're only using the Wayland session.
   services.xserver.enable = true;
 
-  services.displayManager.sddm.enable = true;
+  # Enable the KDE Plasma Desktop Environment.
+  services.displayManager.sddm.enable = true; 
+  services.displayManager.defaultSession = "plasmax11";
+  services.displayManager.autoLogin.enable = true;
+  services.displayManager.autoLogin.user = "alexmalder";
   services.desktopManager.plasma6.enable = true;
 
   # Configure keymap in X11
@@ -67,7 +71,7 @@
     alsa.support32Bit = true;
     pulse.enable = true;
     # If you want to use JACK applications, uncomment this
-    jack.enable = true;
+    #jack.enable = true;
 
     # use the example session manager (no others are packaged yet so this is enabled by default,
     # no need to redefine it in your config for now)
@@ -82,13 +86,7 @@
     isNormalUser = true;
     description = "alexmalder";
     extraGroups = [ "networkmanager" "wheel" "docker" ];
-    packages = with pkgs; [
-      kdePackages.kate
-      kdePackages.qtmultimedia
-      kdePackages.kmail
-      kdePackages.kdenlive
-      kdePackages.ktorrent
-    ];
+    packages = with pkgs; [ ];
   };
 
   # Install firefox.
@@ -97,20 +95,13 @@
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
-  # Nvidia accept lic
-  nixpkgs.config.nvidia.acceptLicense = true;
-
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-    wget
     git
     vim
-    qjackctl
-    docker-compose
-    kitty
+    fish
   ];
-
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
@@ -139,30 +130,16 @@
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "26.05"; # Did you read the comment?
 
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  nix.settings.experimental-features = [ 
+    "nix-command" 
+    "flakes" 
+  ];
 
-  # Setup docker
+  # Docker apps
   virtualisation.docker.enable = true;
 
-  # setup wallpaper
-  # systemd.user.services.set-wallpaper = {
-  #   enable = true;
-  #   description = "Set KDE Plasma wallpaper";
-  #   after = [ "graphical-session.target" ];
-  #   wantedBy = [ "graphical-session.target" ];
-  #   serviceConfig = {
-  #     Type = "simple";
-  #     ExecStart = [ "/run/current-system/sw/bin/plasma-apply-wallpaperimage /home/alexmalder/Pictures/Wallpapers/background.jpg" ];
-  #     Restart = "on-failure";
-  #   };
-  # };
+  # Android apps
+  # virtualisation.waydroid.enable = true;
 
-
-  # Enable the Hyprland system module
-  # programs.hyprland = {
-  #   enable = true;
-  #   xwayland.enable = true; # Optional: for legacy X11 app support
-  # };
-  # environment.sessionVariables.NIXOS_OZONE_WL = "1";
 
 }
