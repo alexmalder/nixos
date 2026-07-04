@@ -9,58 +9,64 @@
   #home.enableNixpkgsReleaseCheck = false;
   #programs.home-manager.enable = true;
 
-  home.packages = [
+  home.packages = with pkgs; [
 
     # console utilities
-    pkgs.wget
-    pkgs.zsh
-    pkgs.fish
-    pkgs.nnn
-    pkgs.neovim
-    pkgs.zoxide 
-    pkgs.htop
-    pkgs.tree
-    pkgs.btop
-    pkgs.fzf
-    pkgs.ripgrep
-    pkgs.eza
-    pkgs.pass
-    pkgs.nmap
-    pkgs.ncdu
-    pkgs.sshpass
-    pkgs.ctop
-    pkgs.k9s
-    pkgs.dpkg
+    wget
+    zsh
+    fish
+    nnn
+    neovim
+    zoxide 
+    htop
+    tree
+    btop
+    fzf
+    ripgrep
+    eza
+    pass
+    nmap
+    ncdu
+    sshpass
+    ctop
+    k9s
+    dpkg
+    # building qtcurve ...
+    gnumake
+    cmakeMinimal
+    gcc16
+    pkg-config
 
     # dev
-    pkgs.yaml-language-server
-    pkgs.bash-language-server
+    yaml-language-server
+    bash-language-server
 
     # golang
-    pkgs.go
+    go
     # Optional: tools like gopls (language server) or gotools
-    pkgs.gopls 
-    pkgs.gotools
+    gopls 
+    gotools
     # fonts
-    pkgs.nerd-fonts.iosevka-term
-    pkgs.nerd-fonts.ubuntu
+    nerd-fonts.iosevka-term
+    nerd-fonts.ubuntu
 
     # gui apps
-    pkgs.telegram-desktop
-    pkgs.floorp-bin
-    pkgs.google-chrome
-    pkgs.obsidian
-    pkgs.vscode
-    pkgs.zed-editor
+    telegram-desktop
+    floorp-bin
+    google-chrome
+    obsidian
+    vscode
+    thunderbird
 
     # kde user apps
-    pkgs.kdePackages.kdenlive
-    pkgs.kdePackages.ktorrent
-    pkgs.kdePackages.kmail
-    pkgs.kdePackages.kdepim-runtime # Required for Akonadi agents and mail sync
-    pkgs.kdePackages.akonadi        # Core email database and control service
+    kdePackages.kate
+    kdePackages.kdenlive
+    kdePackages.ktorrent
+    kdePackages.kdepim-runtime # Required for Akonadi agents and mail sync
+    kdePackages.akonadi        # Core email database and control service
 
     # music
-    pkgs.bitwig-studio5
+    bitwig-studio5
+
   ];
 }

@@ -47,7 +47,10 @@
   services.xserver.enable = true;
 
   # Enable the KDE Plasma Desktop Environment.
-  services.displayManager.sddm.enable = true;
+  services.displayManager.sddm.enable = true; 
+  services.displayManager.defaultSession = "plasmax11";
+  services.displayManager.autoLogin.enable = true;
+  services.displayManager.autoLogin.user = "alexmalder";
   services.desktopManager.plasma6.enable = true;
 
   # Configure keymap in X11
@@ -83,10 +86,7 @@
     isNormalUser = true;
     description = "alexmalder";
     extraGroups = [ "networkmanager" "wheel" "docker" ];
-    packages = with pkgs; [
-      kdePackages.kate
-    #  thunderbird
-    ];
+    packages = with pkgs; [ ];
   };
 
   # Install firefox.
@@ -98,8 +98,6 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-  #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
-  #  wget
     git
     vim
     fish
@@ -137,6 +135,11 @@
     "flakes" 
   ];
 
+  # Docker apps
   virtualisation.docker.enable = true;
+
+  # Android apps
+  # virtualisation.waydroid.enable = true;
+
 
 }
