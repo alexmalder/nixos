@@ -24,6 +24,7 @@
     fzf
     ripgrep
     eza
+    gnupg
     pass
     nmap
     ncdu
@@ -31,15 +32,20 @@
     ctop
     k9s
     dpkg
+    gparted
     # building qtcurve ...
     gnumake
     cmakeMinimal
     gcc16
     pkg-config
+    # win
+    woeusb
+    ntfs3g
 
     # dev
     yaml-language-server
     bash-language-server
+    markdownlint-cli
 
     # golang
     go
@@ -60,13 +66,11 @@
 
     # kde user apps
     kdePackages.kate
+    kdePackages.partitionmanager
     kdePackages.kdenlive
     kdePackages.ktorrent
     kdePackages.kdepim-runtime # Required for Akonadi agents and mail sync
     kdePackages.akonadi        # Core email database and control service
-
-    # music
-    bitwig-studio5
 
   ];
 }
