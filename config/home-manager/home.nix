@@ -62,15 +62,17 @@
     google-chrome
     obsidian
     vscode
-    thunderbird
 
     # kde user apps
     kdePackages.kate
     kdePackages.partitionmanager
     kdePackages.kdenlive
     kdePackages.ktorrent
-    kdePackages.kdepim-runtime # Required for Akonadi agents and mail sync
-    kdePackages.akonadi        # Core email database and control service
-
+    kdePackages.okular
+    # kde mail
+    kdePackages.kmail
+    kdePackages.kmail-account-wizard
+    kdePackages.akonadi
+    
   ];
 }
