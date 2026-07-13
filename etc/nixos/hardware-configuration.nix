@@ -45,4 +45,11 @@
   hardware.graphics.enable = true;
 
   # Nvidia setup end
+
+  # Bluetooth setup
+
+  hardware.bluetooth = {
+    enable = true;
+    powerOnBoot = true; # Automatically turns on Bluetooth on startup
+  };
 }
