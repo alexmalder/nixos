@@ -33,14 +33,11 @@
     k9s
     dpkg
     gparted
-    # building qtcurve ...
-    gnumake
-    cmakeMinimal
-    gcc16
-    pkg-config
     # win
     woeusb
     ntfs3g
+    # python
+    virtualenv
 
     # dev
     yaml-language-server
@@ -62,6 +59,8 @@
     google-chrome
     obsidian
     vscode
+    libreoffice-qt
+    qtractor
 
     # kde user apps
     kdePackages.kate
