@@ -1,6 +1,4 @@
-#!/run/current-system/sw/bin/bash
-
-
+# declare commands
 diff_cmd="diff -r --color"
 
 # nix general config
