@@ -15,12 +15,12 @@
     wget
     zsh
     fish
-    nnn
+    tmux
     neovim
+    nnn
     zoxide 
     htop
     tree
-    btop
     fzf
     ripgrep
     eza
@@ -50,10 +50,12 @@
     gopls 
     gotools
     # fonts
+    helvetica-neue-lt-std
     nerd-fonts.iosevka-term
     nerd-fonts.ubuntu
 
     # gui apps
+    kitty
     telegram-desktop
     floorp-bin
     google-chrome
@@ -61,6 +63,7 @@
     vscode
     libreoffice-qt
     qtractor
+    # reaper
 
     # kde user apps
     kdePackages.kate
@@ -68,6 +71,7 @@
     kdePackages.kdenlive
     kdePackages.ktorrent
     kdePackages.okular
+    kdePackages.filelight
     # kde mail
     kdePackages.kmail
     kdePackages.kmail-account-wizard
