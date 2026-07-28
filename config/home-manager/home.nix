@@ -20,6 +20,7 @@
     nnn
     zoxide 
     htop
+    btop
     tree
     fzf
     ripgrep
@@ -62,9 +63,9 @@
     google-chrome
     obsidian
     vscode
-    libreoffice-qt
     qtractor
-    reaper
+    #libreoffice-qt
+    #reaper
 
     # kde user apps
     kdePackages.kate
@@ -73,6 +74,7 @@
     kdePackages.ktorrent
     kdePackages.okular
     kdePackages.filelight
+    kdePackages.konqueror
     # kde mail
     kdePackages.kmail
     kdePackages.kmail-account-wizard
