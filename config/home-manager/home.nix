@@ -33,6 +33,7 @@
     k9s
     dpkg
     gparted
+    kubectl
     # win
     woeusb
     ntfs3g
@@ -63,7 +64,7 @@
     vscode
     libreoffice-qt
     qtractor
-    # reaper
+    reaper
 
     # kde user apps
     kdePackages.kate
