@@ -92,6 +92,9 @@
   # Install firefox.
   programs.firefox.enable = true;
 
+  # Install partition manager
+  programs.partition-manager.enable = true;
+
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 

@@ -35,11 +35,13 @@
     dpkg
     gparted
     kubectl
+    hugo
     # win
     woeusb
     ntfs3g
     # python
     virtualenv
+    xray
 
     # dev
     yaml-language-server
@@ -59,26 +61,20 @@
     # gui apps
     kitty
     telegram-desktop
-    floorp-bin
     google-chrome
     obsidian
     vscode
     qtractor
-    #libreoffice-qt
-    #reaper
 
     # kde user apps
     kdePackages.kate
-    kdePackages.partitionmanager
     kdePackages.kdenlive
     kdePackages.ktorrent
     kdePackages.okular
     kdePackages.filelight
-    kdePackages.konqueror
     # kde mail
     kdePackages.kmail
     kdePackages.kmail-account-wizard
     kdePackages.akonadi
-    
   ];
 }
