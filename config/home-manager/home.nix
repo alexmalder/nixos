@@ -3,14 +3,17 @@
 {
   home.username = "alexmalder";
   home.homeDirectory = "/home/alexmalder"; # use "/Users/YOUR_USERNAME" on macOS
-  #home.stateVersion = "26.11"; # Match to the Nixpkgs version you are using
   home.stateVersion = "26.05";
 
-  #home.enableNixpkgsReleaseCheck = false;
-  #programs.home-manager.enable = true;
+  programs.obsidian = {
+    enable = true;
+    package = pkgs.obsidian.override {
+      electron = pkgs.electron_39; # or your specific electron 39 derivation
+    };
+  };
+
 
   home.packages = with pkgs; [
-
     # console utilities
     wget
     zsh
@@ -65,14 +68,11 @@
     # Optional: tools like gopls (language server) or gotools
     gopls 
     gotools
-    # fonts
-    helvetica-neue-lt-std
 
     # gui apps
     kitty
     telegram-desktop
     google-chrome
-    obsidian
     vscode
     bluemail
     qtractor
@@ -84,9 +84,11 @@
     kdePackages.okular
     kdePackages.filelight
     kdePackages.kgpg
+    kdePackages.kfind
     # kde mail
     #kdePackages.kmail
     #kdePackages.kmail-account-wizard
     #kdePackages.akonadi
   ];
+
 }

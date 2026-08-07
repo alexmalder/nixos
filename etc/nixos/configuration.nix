@@ -48,8 +48,12 @@
   services.xserver.enable = true;
 
   # Enable the KDE Plasma Desktop Environment.
-  services.displayManager.sddm.enable = true;
+  services.displayManager.sddm.enable = true; 
+  services.displayManager.defaultSession = "plasmax11";
+  services.displayManager.autoLogin.enable = true;
+  services.displayManager.autoLogin.user = "alexmalder";
   services.desktopManager.plasma6.enable = true;
+
 
   # Configure keymap in X11
   services.xserver.xkb = {
@@ -142,5 +146,14 @@
     "nix-command" 
     "flakes" 
   ];
+
+  # start setup sleep
+
+  boot.kernelParams = [ 
+    "mem_sleep_default=deep" 
+    "nvidia.NVreg_PreserveVideoMemoryAllocations=1"
+  ];
+
+  powerManagement.enable = true;
 
 }
