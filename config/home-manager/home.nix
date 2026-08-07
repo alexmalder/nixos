@@ -36,9 +36,21 @@
     gparted
     kubectl
     hugo
-    # win
-    woeusb
+    woeusb-ng
     ntfs3g
+
+    # dev
+    yaml-language-server
+    bash-language-server
+    markdownlint-cli
+
+    # golang
+    go
+    # Optional: tools like gopls (language server) or gotools
+    gopls 
+    gotools
+    # fonts
+    helvetica-neue-lt-std    
     # python
     virtualenv
     xray
@@ -55,8 +67,6 @@
     gotools
     # fonts
     helvetica-neue-lt-std
-    nerd-fonts.iosevka-term
-    nerd-fonts.ubuntu
 
     # gui apps
     kitty
@@ -64,6 +74,7 @@
     google-chrome
     obsidian
     vscode
+    bluemail
     qtractor
 
     # kde user apps
@@ -72,9 +83,10 @@
     kdePackages.ktorrent
     kdePackages.okular
     kdePackages.filelight
+    kdePackages.kgpg
     # kde mail
-    kdePackages.kmail
-    kdePackages.kmail-account-wizard
-    kdePackages.akonadi
+    #kdePackages.kmail
+    #kdePackages.kmail-account-wizard
+    #kdePackages.akonadi
   ];
 }

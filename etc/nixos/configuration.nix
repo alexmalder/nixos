@@ -8,6 +8,7 @@
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
+      ./video.nix
     ];
 
   # Bootloader.
@@ -18,8 +19,8 @@
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
   # Configure network proxy if necessary
-  #networking.proxy.default = "http://127.0.0.1:80/";
-  #networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
+  # networking.proxy.default = "http://user:password@proxy:port/";
+  # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
 
   # Enable networking
   networking.networkmanager.enable = true;
@@ -47,10 +48,7 @@
   services.xserver.enable = true;
 
   # Enable the KDE Plasma Desktop Environment.
-  services.displayManager.sddm.enable = true; 
-  services.displayManager.defaultSession = "plasmax11";
-  services.displayManager.autoLogin.enable = true;
-  services.displayManager.autoLogin.user = "alexmalder";
+  services.displayManager.sddm.enable = true;
   services.desktopManager.plasma6.enable = true;
 
   # Configure keymap in X11
@@ -71,7 +69,7 @@
     alsa.support32Bit = true;
     pulse.enable = true;
     # If you want to use JACK applications, uncomment this
-    jack.enable = true;
+    #jack.enable = true;
 
     # use the example session manager (no others are packaged yet so this is enabled by default,
     # no need to redefine it in your config for now)
@@ -85,15 +83,15 @@
   users.users."alexmalder" = {
     isNormalUser = true;
     description = "alexmalder";
-    extraGroups = [ "networkmanager" "wheel" "docker" ];
-    packages = with pkgs; [ ];
+    extraGroups = [ "networkmanager" "wheel" ];
+    packages = with pkgs; [
+      kdePackages.kate
+    #  thunderbird
+    ];
   };
 
   # Install firefox.
   programs.firefox.enable = true;
-
-  # Install partition manager
-  programs.partition-manager.enable = true;
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
@@ -101,10 +99,9 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-    git
-    vim
+    vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
     fish
-    qjackctl
+    git
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
@@ -112,7 +109,7 @@
   # programs.mtr.enable = true;
   programs.gnupg.agent = {
     enable = true;
-    #enableSSHSupport = true;
+  #   enableSSHSupport = true;
   };
 
   # List services that you want to enable:
@@ -134,11 +131,16 @@
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "26.05"; # Did you read the comment?
 
+  # Bluetooth setup
+
+  hardware.bluetooth = {
+    enable = true;
+    powerOnBoot = true; # Automatically turns on Bluetooth on startup
+  };
+
   nix.settings.experimental-features = [ 
     "nix-command" 
     "flakes" 
   ];
 
-  # Docker apps
-  virtualisation.docker.enable = true;
 }
