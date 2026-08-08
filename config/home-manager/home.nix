@@ -52,8 +52,6 @@
     # Optional: tools like gopls (language server) or gotools
     gopls 
     gotools
-    # fonts
-    helvetica-neue-lt-std    
     # python
     virtualenv
     xray
@@ -75,6 +73,7 @@
     google-chrome
     vscode
     bluemail
+    libreoffice
     qtractor
 
     # kde user apps
