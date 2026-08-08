@@ -19,8 +19,8 @@
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
   # Configure network proxy if necessary
-  # networking.proxy.default = "http://user:password@proxy:port/";
-  # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
+  #networking.proxy.default = "socks5://127.0.0.1:10808/";
+  #networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
 
   # Enable networking
   networking.networkmanager.enable = true;
@@ -89,7 +89,6 @@
     description = "alexmalder";
     extraGroups = [ "networkmanager" "wheel" ];
     packages = with pkgs; [
-      kdePackages.kate
     #  thunderbird
     ];
   };
@@ -103,9 +102,13 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-    vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
+    vim 
     fish
     git
+    helvetica-neue-lt-std    
+    nerd-fonts.iosevka
+    nerd-fonts.iosevka-term
+    nerd-fonts.ubuntu-mono
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
@@ -155,5 +158,11 @@
   ];
 
   powerManagement.enable = true;
+
+  services.xray = {
+    enable = true;
+    settingsFile = "/etc/xray/config.json";
+  };
+
 
 }
