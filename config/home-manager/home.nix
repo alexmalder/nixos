@@ -12,7 +12,6 @@
     };
   };
 
-
   home.packages = with pkgs; [
     # console utilities
     wget
@@ -39,6 +38,10 @@
     gparted
     kubectl
     hugo
+    p7zip
+    calibre
+
+    # windows bootable iso packages
     woeusb-ng
     ntfs3g
 
