@@ -9,7 +9,7 @@
       ./video.nix
     ];
 
-  # Bootloader.
+  # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
@@ -17,8 +17,8 @@
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
   # Configure network proxy if necessary
-  networking.proxy.default = "socks5://127.0.0.1:10808/";
-  networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
+  # networking.proxy.default = "http://user:password@proxy:port/";
+  # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
 
   # Enable networking
   networking.networkmanager.enable = true;
@@ -46,12 +46,8 @@
   services.xserver.enable = true;
 
   # Enable the KDE Plasma Desktop Environment.
-  services.displayManager.sddm.enable = true; 
-  services.displayManager.defaultSession = "plasmax11";
-  services.displayManager.autoLogin.enable = true;
-  services.displayManager.autoLogin.user = "alexmalder";
+  services.displayManager.sddm.enable = true;
   services.desktopManager.plasma6.enable = true;
-
 
   # Configure keymap in X11
   services.xserver.xkb = {
@@ -71,15 +67,11 @@
     alsa.support32Bit = true;
     pulse.enable = true;
     # If you want to use JACK applications, uncomment this
-    #jack.enable = true;
-
-    # use the example session manager (no others are packaged yet so this is enabled by default,
-    # no need to redefine it in your config for now)
-    #media-session.enable = true;
+    # jack.enable = true;
   };
 
   # Enable touchpad support (enabled default in most desktopManager).
-  # services.xserver.libinput.enable = true;
+  # services.libinput.enable = true;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users."alexmalder" = {
@@ -87,6 +79,7 @@
     description = "alexmalder";
     extraGroups = [ "networkmanager" "wheel" ];
     packages = with pkgs; [
+      kdePackages.kate
     #  thunderbird
     ];
   };
@@ -94,22 +87,19 @@
   # Install firefox.
   programs.firefox.enable = true;
 
+  # Install partition manager kde
   programs.partition-manager.enable = true;
-
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
-  # List packages installed in system profile. To search, run:
-  # $ nix search wget
+  # List packages installed in system profile.
+  # You can use https://search.nixos.org/ to find more packages (and options).
   environment.systemPackages = with pkgs; [
-    vim 
-    fish
+    vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
     git
-    helvetica-neue-lt-std    
-    nerd-fonts.iosevka
-    nerd-fonts.iosevka-term
-    nerd-fonts.ubuntu-mono
+    fish
+    wget
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
@@ -148,10 +138,10 @@
 
   # start setup sleep
 
-  boot.kernelParams = [ 
-    "mem_sleep_default=deep" 
-    "nvidia.NVreg_PreserveVideoMemoryAllocations=1"
-  ];
+  # boot.kernelParams = [ 
+  #   "mem_sleep_default=deep" 
+  #   "nvidia.NVreg_PreserveVideoMemoryAllocations=1"
+  # ];
 
   powerManagement.enable = true;
 

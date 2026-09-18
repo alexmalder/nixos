@@ -40,10 +40,8 @@
     hugo
     p7zip
     calibre
-
-    # windows bootable iso packages
-    woeusb-ng
-    ntfs3g
+    gcc
+    gnumake
 
     # dev
     yaml-language-server
@@ -52,32 +50,21 @@
 
     # golang
     go
-    # Optional: tools like gopls (language server) or gotools
     gopls 
     gotools
     # python
     virtualenv
-    xray
 
     # dev
     yaml-language-server
     bash-language-server
     markdownlint-cli
 
-    # golang
-    go
-    # Optional: tools like gopls (language server) or gotools
-    gopls 
-    gotools
-
     # gui apps
-    kitty
     telegram-desktop
     google-chrome
     vscode
     bluemail
-    libreoffice
-    qtractor
 
     # kde user apps
     kdePackages.kate
@@ -85,12 +72,10 @@
     kdePackages.ktorrent
     kdePackages.okular
     kdePackages.filelight
-    kdePackages.kgpg
     kdePackages.kfind
-    # kde mail
-    #kdePackages.kmail
-    #kdePackages.kmail-account-wizard
-    #kdePackages.akonadi
-  ];
 
+    # fonts
+    helvetica-neue-lt-std    
+    nerd-fonts.iosevka-term
+  ];
 }
