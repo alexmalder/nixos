@@ -1,0 +1,46 @@
+#SPDX-License-Identifier: MIT-0
+---
+- name: Ensure APT keyring directories exist
+  ansible.builtin.file:
+    path: "{{ item }}"
+    state: directory
+    mode: '0755'
+  loop:
+    - /etc/apt/keyrings
+    - /usr/share/keyrings
+
+- name: Deploy Fish Shell PGP key
+  ansible.builtin.copy:
+    src: fish-shell.gpg
+    dest: /etc/apt/keyrings/fish-shell.gpg
+    mode: '0644'
+
+- name: Deploy Docker APT key
+  ansible.builtin.get_url:
+    url: https://download.docker.com/linux/ubuntu/gpg
+    dest: /etc/apt/keyrings/docker.asc
+    mode: '0644'
+
+- name: Deploy NodeSource APT key
+  ansible.builtin.get_url:
+    url: https://deb.nodesource.com/gpgkey/nodesource-repo.gpg.key
+    dest: /etc/apt/keyrings/nodesource.gpg
+    mode: '0644'
+
+- name: Deploy sources lists
+  ansible.builtin.copy:
+    src: "{{ item.src }}"
+    dest: "{{ item.dest }}"
+    mode: '0644'
+  loop: "{{ source_list_files }}"
+
+- name: Update apt cache and install base packages (small pack)
+  ansible.builtin.apt:
+    name: "{{ base_apt_packages }}"
+    update_cache: yes
+    cache_valid_time: 3600
+
+- name: Install packages from external repositories
+  ansible.builtin.apt:
+    name: "{{ external_apt_packages }}"
+

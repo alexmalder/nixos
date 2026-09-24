@@ -1,0 +1,36 @@
+#SPDX-License-Identifier: MIT-0
+---
+source_list_files:
+  - src: docker.sources
+    dest: /etc/apt/sources.list.d/docker.sources
+  - src: fish-shell.sources
+    dest: /etc/apt/sources.list.d/fish-shell-ubuntu-release-4-resolute.sources
+  - src: nodesource.list
+    dest: /etc/apt/sources.list.d/nodesource.list
+  - src: ubuntu.sources
+    dest: /etc/apt/sources.list.d/ubuntu.sources
+
+base_apt_packages:
+  - bash
+  - btop
+  - ca-certificates
+  - curl
+  - eza
+  - fish
+  - flatpak
+  - fzf
+  - gnupg
+  - neovim
+  - hugo
+  - fonts-roboto
+  - kaccounts-providers
+
+
+external_apt_packages:
+  - docker-ce 
+  - docker-ce-cli 
+  - containerd.io
+  - docker-buildx-plugin 
+  - docker-compose-plugin
+  - fish
+  - nodejs

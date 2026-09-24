@@ -1,0 +1,7 @@
+---
+- name: Configure ubuntu desktop
+  hosts: localhost
+  connection: local
+  become: true
+  roles:
+    - role: ubuntu-desktop
