@@ -9,12 +9,6 @@
     - /etc/apt/keyrings
     - /usr/share/keyrings
 
-- name: Deploy Fish Shell PGP key
-  ansible.builtin.copy:
-    src: fish-shell.gpg
-    dest: /etc/apt/keyrings/fish-shell.gpg
-    mode: '0644'
-
 - name: Deploy Docker APT key
   ansible.builtin.get_url:
     url: https://download.docker.com/linux/ubuntu/gpg
