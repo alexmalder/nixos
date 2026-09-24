@@ -38,15 +38,6 @@ require("lazy").setup({
   { "lewis6991/gitsigns.nvim", dependencies = { "nvim-lua/plenary.nvim" } },
   "sindrets/diffview.nvim",
   "sharksforarms/neovim-rust",
-  --{
-  --  "https://tangled.org/cuducos.me/yaml.nvim",
-  --  ft = { "yaml" }, -- optional
-  --  dependencies = {
-  --    "folke/snacks.nvim", -- optional
-  --    "nvim-telescope/telescope.nvim", -- optional
-  --    "ibhagwan/fzf-lua" -- optional
-  --  },
-  --},
   "ajeetdsouza/zoxide",
   "jvgrootveld/telescope-zoxide",
   {
@@ -87,9 +78,6 @@ require("lazy").setup({
       opts = {},
   },
   {
-    'makerj/vim-pdf'
-  },
-  {
     "kdheepak/monochrome.nvim",
     -- Optionally install Lush. Allows for more configuration or extending the colorscheme
     -- If you don't want to install lush, make sure to set g:zenbones_compat = 1
@@ -106,8 +94,8 @@ require("lazy").setup({
     "hedyhli/outline.nvim",
     config = function()
       -- Example mapping to toggle outline
-      vim.keymap.set("n", "<leader>o", "<cmd>Outline<CR>", { 
-	desc = "Toggle Outline" 
+      vim.keymap.set("n", "<leader>o", "<cmd>Outline<CR>", {
+        desc = "Toggle Outline" 
       })
 
       require("outline").setup {
