@@ -516,7 +516,7 @@ controller:
     clusterIPs: []
     # -- List of node IP addresses at which the external controller service is available.
     # Ref: https://kubernetes.io/docs/concepts/services-networking/service/#external-ips
-    externalIPs: [192.168.0.90]
+    # externalIPs: [192.168.0.91]
     # -- Deprecated: Pre-defined IP address of the external controller service. Used by cloud providers to connect the resulting load balancer service to a pre-existing static IP.
     # Ref: https://kubernetes.io/docs/concepts/services-networking/service/#loadbalancer
     loadBalancerIP: ""
