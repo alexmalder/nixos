@@ -1,28 +1,38 @@
 ## Overview
 
-![NixOS under kde plasma 6](wallpapers/Screenshot_20260729_185905.png)
+![NixOS under kde plasma 6](wallpapers/Screenshot_20261006_220210.png)
 
 ## NixOS distribution page
 
 - https://nixos.org/download/#nix-more
 
-## Global theme
+## Plasma config
 
-- monochrome
+- Global theme: ChromeOS-dark
+- Font family: default
+- Colors: Kanagawa Dragon
+- Icons: Tela dark (reserved: Fluent dark icon theme)
+- Cursor: Vimix Cursors
 
-## Font family
+## NixOS config
 
-- Apple SD Gothic Neo (R)
+1. Ssh server
+2. Gnupg agent
+3. Kubernetes (single node)
+4. Firewall for home dev
+5. Partition manager
+6. Bluetooth
+7. Nvidia driver
+8. Docker (TODO)
 
-## Colors
+### Home manager
 
-- Kanagawa (Dragon)
+1. Kmail
+2. Git with autoconfig
+3. Obisidian with electron fix
+4. Fonts, command line utilities, graphical applications
 
-## Icons
+## Author
 
-- YAMIS (by dirn)
-
-## Cursor
-
-- clay-dark
+- alexmalder
 

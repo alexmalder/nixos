@@ -12,6 +12,16 @@
     };
   };
 
+  programs.git = {
+    enable = true;
+    settings = {
+      user.name = "alexmalder";
+      user.email = "alexmalder@outlook.com";
+      init.defaultBranch = "main";
+    };
+  };
+
+
   home.packages = with pkgs; [
     # console utilities
     wget
@@ -76,6 +86,10 @@
     kdePackages.okular
     kdePackages.filelight
     kdePackages.kfind
+    kdePackages.kmail
+    kdePackages.kaccounts-integration
+    kdePackages.kaccounts-providers
+    kdePackages.kmail-account-wizard
 
     # fonts
     helvetica-neue-lt-std    
