@@ -65,8 +65,12 @@
     gotools
     # python
     virtualenv
+    # windows installer
+    woeusb-ng
+    ntfs3g
 
     # dev
+    nodejs_26
     yaml-language-server
     bash-language-server
     markdownlint-cli

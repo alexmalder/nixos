@@ -82,7 +82,7 @@
   users.users."alexmalder" = {
     isNormalUser = true;
     description = "alexmalder";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [ "networkmanager" "wheel" "docker" ];
     packages = with pkgs; [
       kdePackages.kate
     #  thunderbird
@@ -137,4 +137,5 @@
     "flakes" 
   ];
 
+  virtualisation.docker.enable = true;
 }
