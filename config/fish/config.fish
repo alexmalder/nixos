@@ -9,11 +9,9 @@ fundle plugin 'justinmayer/virtualfish'
 fundle init
 
 alias vim="nvim"
-alias :wq!="exit"
 alias ff='vim $(fzf)'
-alias gs="git status"
-alias s="sudo"
 alias ls="eza"
+alias :wq!="exit"
 
 export VISUAL="nvim"
 export EDITOR="nvim"
@@ -24,10 +22,8 @@ export GOPATH="$HOME/.go"
 export PATH="$PATH:$HOME/.go/bin"
 export PATH="$PATH:$GOROOT/bin:$GOPATH/bin"
 export PATH="$PATH:$HOME/.cargo/bin"
-export PATH="$PATH:$HOME/.dotnet/tools"
 export HELM_EXPERIMENTAL_OCI="1"
-export DOTNET_ROOT=/opt/local/share/dotnet
-export PASSWORD_STORE_DIR="$HOME/Devops/store"
+export PASSWORD_STORE_DIR="$HOME/Git/store"
 export LANG=en_US.UTF-8
 
 fish_config theme choose "Mono Smoke"

@@ -53,6 +53,7 @@
     calibre
     gcc
     gnumake
+    xdotool
 
     # dev
     yaml-language-server
