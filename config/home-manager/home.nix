@@ -54,6 +54,8 @@
     gcc
     gnumake
     xdotool
+    jq
+    yq
 
     # dev
     yaml-language-server
@@ -64,17 +66,20 @@
     go
     gopls 
     gotools
+
     # python
     virtualenv
-    # windows installer
-    woeusb-ng
-    ntfs3g
+    pyright
 
-    # dev
+    # js
     nodejs_26
     yaml-language-server
     bash-language-server
     markdownlint-cli
+
+    # windows installer
+    woeusb-ng
+    ntfs3g
 
     # gui apps
     telegram-desktop
@@ -82,7 +87,7 @@
     floorp-bin
     vscode
     freelens-bin
-    bluemail
+    qtractor
 
     # kde user apps
     kdePackages.kate
