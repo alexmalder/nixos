@@ -21,12 +21,3 @@ argocd_generate_cert:
 
 create_cert_secret:
 	kubectl create secret tls argocd-server-tls --cert=./argocd.crt --key=./argocd.key -n argocd 
-
-deploy_gitea: 
-	argocd app create gitea \
-		--repo https://gitea.com/gitea/helm-gitea \
-		--path . \
-		--dest-server https://kubernetes.default.svc \
-		--dest-namespace gitea \
-		--sync-option CreateNamespace=true \
-		--parameter namespace=gitea
