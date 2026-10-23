@@ -46,7 +46,7 @@ certificate:
 global:
   # -- Default domain used by all components
   ## Used for ingresses, certificates, SSO, notifications, etc.
-  domain: argocd.homeserver.com
+  domain: argocd.homeserver.local
 
   # -- Runtime class name for all components
   runtimeClassName: ""

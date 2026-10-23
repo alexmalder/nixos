@@ -16,8 +16,8 @@ install_argo_cd:
 diff_argo_cd:
 	helm diff upgrade argo-cd argo/argo-cd --namespace argocd --version 10.10.5 --values argo-cd.yaml
 
-argocd_generate_cert:
-	openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout argocd.key -out argocd.crt -subj "/CN=argocd.homeserver.com" -addext "subjectAltName = DNS:argocd.homeserver.com"
+generate_cert:
+	openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout homeserver.key -out homeserver.crt -subj "/CN=argocd.homeserver.local" -addext "subjectAltName = DNS:argocd.homeserver.local"
 
 create_cert_secret:
-	kubectl create secret tls argocd-server-tls --cert=./argocd.crt --key=./argocd.key -n argocd 
+	kubectl create secret tls argocd-server-tls --cert=./homeserver.crt --key=./homeserver.key -n argocd 
