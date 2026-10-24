@@ -3,10 +3,10 @@ remoteWrite:
 
 resources:
   limits:
-    cpu: 200m
+    cpu: 100m
     memory: 128Mi
   requests:
-    cpu: 200m
+    cpu: 100m
     memory: 128Mi
 
 config:

@@ -1,5 +1,19 @@
 # argocd examples
 
+## helm repositories
+
+```bash
+❯ helm repo ls
+NAME                    URL                                               
+ingress-nginx           https://kubernetes.github.io/ingress-nginx        
+argo                    https://argoproj.github.io/argo-helm              
+sentry                  https://sentry-kubernetes.github.io/charts        
+gitea                   https://dl.gitea.com/charts                       
+prometheus-community    https://prometheus-community.github.io/helm-charts
+vm                      https://victoriametrics.github.io/helm-charts/    
+grafana-community       https://grafana-community.github.io/helm-charts   
+```
+
 ## create sentry app from git
 
 ```bash
