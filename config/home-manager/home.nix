@@ -37,6 +37,8 @@
     fzf
     ripgrep
     eza
+    jq
+    yq
     gnupg
     pass
     nmap
@@ -54,8 +56,8 @@
     gcc
     gnumake
     xdotool
-    jq
-    yq
+    openssl_4_0
+    argocd
 
     # dev
     yaml-language-server
@@ -88,6 +90,7 @@
     vscode
     freelens-bin
     qtractor
+    #tor-browser
 
     # kde user apps
     kdePackages.kate

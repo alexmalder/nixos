@@ -18,6 +18,20 @@
 
   networking.hostName = "devopsfaith-desktop"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
+  networking.hosts = {
+    "192.168.0.90" = [ 
+      "argocd.homeserver.local" 
+      "prometheus.homeserver.local"
+      "grafana.homeserver.local"
+      "alertmanager.homeserver.local"
+    ];
+  };
+
+  security.pki.certificateFiles = [
+    /home/alexmalder/Infrastructure/certs/homeserver.crt
+  ];
+
+
 
   # Configure network proxy if necessary
   #networking.proxy.default = "socks5://127.0.0.1:1080/";
@@ -117,6 +131,7 @@
     80
     443
     6443 
+    10250
   ];
   # networking.firewall.allowedUDPPorts = [ ... ];
   # Or disable the firewall altogether.

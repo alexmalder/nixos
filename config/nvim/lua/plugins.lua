@@ -103,9 +103,7 @@ require("lazy").setup({
       }
     end,
   },
-  {
-    'aveplen/ruscmd.nvim'
-  },
+  --{ 'aveplen/ruscmd.nvim' },
   {
     "alexmalder/yaml.nvim",
     ft = { "yaml" }, -- optional

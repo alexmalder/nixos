@@ -45,4 +45,4 @@ vim.opt.termguicolors = true
 vim.cmd[[set linebreak]]
 vim.cmd[[set textwidth=80]]
 
-require('ruscmd').setup{}
+--require('ruscmd').setup{}
