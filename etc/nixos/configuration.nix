@@ -8,6 +8,7 @@
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
+      ./networking.nix
       ./video.nix
       ./kubernetes-single-node.nix
     ];
@@ -15,30 +16,6 @@
   # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
-
-  networking.hostName = "devopsfaith-desktop"; # Define your hostname.
-  # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
-  networking.hosts = {
-    "192.168.0.90" = [ 
-      "argocd.homeserver.local" 
-      "prometheus.homeserver.local"
-      "grafana.homeserver.local"
-      "alertmanager.homeserver.local"
-    ];
-  };
-
-  security.pki.certificateFiles = [
-    /home/alexmalder/Infrastructure/certs/homeserver.crt
-  ];
-
-
-
-  # Configure network proxy if necessary
-  #networking.proxy.default = "socks5://127.0.0.1:1080/";
-  #networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
-
-  # Enable networking
-  networking.networkmanager.enable = true;
 
   # Set your time zone.
   time.timeZone = "Europe/Moscow";
@@ -125,18 +102,6 @@
   # Enable the OpenSSH daemon.
   services.openssh.enable = true;
 
-  # Open ports in the firewall.
-  networking.firewall.allowedTCPPorts = [
-    22
-    80
-    443
-    6443 
-    10250
-  ];
-  # networking.firewall.allowedUDPPorts = [ ... ];
-  # Or disable the firewall altogether.
-  # networking.firewall.enable = false;
-
   # For more information, see `man configuration.nix` or https://nixos.org/manual/nixos/stable/options#opt-system.stateVersion .
   system.stateVersion = "26.05"; # Did you read the comment?
 
@@ -153,4 +118,8 @@
   ];
 
   virtualisation.docker.enable = true;
+
+  security.pki.certificateFiles = [
+    /home/alexmalder/Infrastructure/certs/homeserver.crt
+  ];
 }
