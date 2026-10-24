@@ -12,3 +12,10 @@ vmstorage:
   podAnnotations:
       prometheus.io/scrape: "true"
       prometheus.io/port: "8482"
+  resources:
+    limits:
+      cpu: 100m
+      memory: 256Mi
+    requests:
+      cpu: 100m
+      memory: 256Mi

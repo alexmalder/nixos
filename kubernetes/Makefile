@@ -21,7 +21,7 @@ create_cert_secret:
 	kubectl create secret tls argocd-server-tls --cert=./homeserver.crt --key=./homeserver.key -n argocd 
 
 install_vm_cluster:
-	helm install vmcluster vm/victoria-metrics-cluster --version 0.53.0 -n vm -f monitoring/victoria-metrics-cluster-values.yml
+	helm upgrade --install vmcluster vm/victoria-metrics-cluster --version 0.53.0 -n vm -f monitoring/victoria-metrics-cluster-values.yml
 
 install_vm_agent:
 	helm upgrade --install vmagent vm/victoria-metrics-agent --version 0.50.0 -n vm -f monitoring/guide-vmcluster-vmagent-values.yaml

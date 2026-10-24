@@ -49,7 +49,6 @@
     dpkg
     gparted
     kubectl
-    kubernetes-helm
     hugo
     p7zip
     calibre
@@ -57,7 +56,9 @@
     gnumake
     xdotool
     openssl_4_0
+    kubernetes-helm
     argocd
+    nerdctl
 
     # dev
     yaml-language-server
