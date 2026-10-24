@@ -27,7 +27,7 @@ require("lazy").setup({
   "junegunn/fzf.vim",
   {
     'nvim-treesitter/nvim-treesitter',
-    version = 'v0.10.0',
+    --version = 'v0.10.0',
     lazy = false,
     build = ':TSUpdate'
   },
