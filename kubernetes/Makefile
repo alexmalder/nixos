@@ -1,8 +1,16 @@
 setup_local_path:
 	kubectl apply -f https://raw.githubusercontent.com/rancher/local-path-provisioner/v0.0.37/deploy/local-path-storage.yaml
 
-setup_ingress_repo:
+setup_helm_repos:
 	helm repo add ingress-nginx https://kubernetes.github.io/ingress-nginx
+	helm repo add ingress-nginx https://kubernetes.github.io/ingress-nginx
+	helm repo add argo https://argoproj.github.io/argo-helm
+	helm repo add sentry https://sentry-kubernetes.github.io/charts 
+	helm repo add gitea https://dl.gitea.com/charts
+	helm repo add prometheus-community https://prometheus-community.github.io/helm-charts
+	helm repo add vm https://victoriametrics.github.io/helm-charts/
+	helm repo add grafana-community https://grafana-community.github.io/helm-charts
+
 	helm repo update
 
 install_ingress:

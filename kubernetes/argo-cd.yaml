@@ -1630,7 +1630,7 @@ redis:
   ## Redis image
   image:
     # -- Redis repository
-    repository: ecr-public.aws.com/docker/library/redis
+    repository: redis
     # -- Redis tag
     ## Do not use 7.4.0 <= v < 8.0.0, otherwise you are no longer using an open source version of Redis
     tag: 8.6.4-alpine
