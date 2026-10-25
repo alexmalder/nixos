@@ -18,7 +18,7 @@ in {
 
   # 3. Enable vanilla Kubernetes services
   services.kubernetes = {
-    roles = [ "master" "node" ]; # Combines control plane and worker
+    roles = [ "master" "node" ]; # Setup node roles
     masterAddress = kubeMasterHostname;
     apiserverAddress = "https://${kubeMasterHostname}:${toString kubeMasterAPIServerPort}";
     easyCerts = true;

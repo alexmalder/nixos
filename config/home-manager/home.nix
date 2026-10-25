@@ -56,14 +56,12 @@
     gnumake
     xdotool
     openssl_4_0
+
+    # kubernetes
     kubernetes-helm
     argocd
     nerdctl
-
-    # dev
-    yaml-language-server
-    bash-language-server
-    markdownlint-cli
+    mosh
 
     # golang
     go
@@ -74,7 +72,7 @@
     virtualenv
     pyright
 
-    # js
+    # node js and some lsp
     nodejs_26
     yaml-language-server
     bash-language-server
@@ -89,9 +87,7 @@
     google-chrome
     floorp-bin
     vscode
-    freelens-bin
     qtractor
-    #tor-browser
 
     # kde user apps
     kdePackages.kate

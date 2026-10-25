@@ -10,7 +10,7 @@
       ./hardware-configuration.nix
       ./networking.nix
       ./video.nix
-      ./kubernetes-single-node.nix
+      #./kubernetes-single-node.nix
     ];
 
   # Use the systemd-boot EFI boot loader.
