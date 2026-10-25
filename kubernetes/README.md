@@ -1,4 +1,15 @@
-# argocd examples
+# kubernetes
+
+## nixos kubernetes components
+
+1. etcd
+2. flannel
+3. kube-apiserver
+4. kube-certmgr-bootstrap
+5. kube-controller-mananger
+6. kube-proxy
+7. kube-scheduler
+8. kubelet
 
 ## helm repositories
 
