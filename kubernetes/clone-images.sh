@@ -5,6 +5,7 @@ DEST_REGISTRY="git.homeserver.local"
 DEST_NAMESPACE="devopsfaith"
 
 images=(
+  "coredns/coredns:1.15.0"
   "registry.k8s.io/ingress-nginx/controller:v1.15.1"
   "registry.k8s.io/ingress-nginx/kube-webhook-certgen:v1.6.9"
   "ghcr.io/dexidp/dex:v2.46.0"
