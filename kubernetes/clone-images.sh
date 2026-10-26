@@ -5,9 +5,10 @@ DEST_REGISTRY="git.homeserver.local"
 DEST_NAMESPACE="devopsfaith"
 
 images=(
+  "registry.k8s.io/ingress-nginx/controller:v1.15.1"
+  "registry.k8s.io/ingress-nginx/kube-webhook-certgen:v1.6.9"
   "ghcr.io/dexidp/dex:v2.46.0"
   "redis:8.6.4-alpine"
-  "registry.k8s.io/ingress-nginx/controller:v1.15.1@sha256:594ceea76b01c592858f803f9ff4d2cb40542cae2060410b2c95f75907d659e1"
   "docker.io/rancher/local-path-provisioner:v0.0.37"
   "docker.io/curlimages/curl:8.23.0"
   "quay.io/argoproj/argocd:v3.5.5"

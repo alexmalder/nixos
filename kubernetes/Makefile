@@ -1,5 +1,5 @@
 setup_local_path:
-	kubectl apply -f https://raw.githubusercontent.com/rancher/local-path-provisioner/v0.0.37/deploy/local-path-storage.yaml
+	kubectl apply -f local-path-storage.yaml
 
 setup_helm_repos:
 	helm repo add ingress-nginx https://kubernetes.github.io/ingress-nginx
