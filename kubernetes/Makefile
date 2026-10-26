@@ -3,7 +3,6 @@ setup_local_path:
 
 setup_helm_repos:
 	helm repo add ingress-nginx https://kubernetes.github.io/ingress-nginx
-	helm repo add ingress-nginx https://kubernetes.github.io/ingress-nginx
 	helm repo add argo https://argoproj.github.io/argo-helm
 	helm repo add sentry https://sentry-kubernetes.github.io/charts 
 	helm repo add gitea https://dl.gitea.com/charts

@@ -1,3 +1,8 @@
+global:
+  imagePullSecrets: []
+  image:
+    registry: "git.homeserver.local/devopsfaith"
+
 remoteWrite:
   - url: http://vmcluster-victoria-metrics-cluster-vminsert.vm.svc.cluster.local:8480/insert/0/prometheus/
 

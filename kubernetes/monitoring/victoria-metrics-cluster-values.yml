@@ -1,17 +1,77 @@
+global:
+  # -- Image pull secrets, that can be shared across multiple helm charts
+  imagePullSecrets: []
+  image:
+    # -- Image registry, that can be shared across multiple helm charts
+    registry: "git.homeserver.local/devopsfaith"
+    vm:
+      # -- Image tag for all vm charts
+      tag: ""
+
 vmselect:
   podAnnotations:
-      prometheus.io/scrape: "true"
-      prometheus.io/port: "8481"
+    prometheus.io/scrape: "true"
+    prometheus.io/port: "8481"
+  horizontalPodAutoscaler:
+    # -- Use HPA for vmselect component
+    enabled: false
+    # -- Maximum replicas for HPA to use to to scale the vmselect component
+    maxReplicas: 10
+    # -- Minimum replicas for HPA to use to scale the vmselect component
+    minReplicas: 2
+    # -- Metric for HPA to use to scale the vmselect component
+    metrics: []
+    # -- Behavior settings for scaling by the HPA
+    behavior: {}
+  resources:
+    limits:
+      cpu: 100m
+      memory: 256Mi
+    requests:
+      cpu: 100m
+      memory: 256Mi
 
 vminsert:
   podAnnotations:
-      prometheus.io/scrape: "true"
-      prometheus.io/port: "8480"
+    prometheus.io/scrape: "true"
+    prometheus.io/port: "8480"
+  # -- Horizontal Pod Autoscaler
+  horizontalPodAutoscaler:
+    # -- Use HPA for vminsert component
+    enabled: false
+    # -- Maximum replicas for HPA to use to to scale the vminsert component
+    maxReplicas: 10
+    # -- Minimum replicas for HPA to use to scale the vminsert component
+    minReplicas: 2
+    # -- Metric for HPA to use to scale the vminsert component
+    metrics: []
+    # -- Behavior settings for scaling by the HPA
+    behavior: {}
+  resources:
+    limits:
+      cpu: 100m
+      memory: 256Mi
+    requests:
+      cpu: 100m
+      memory: 256Mi
 
 vmstorage:
   podAnnotations:
       prometheus.io/scrape: "true"
       prometheus.io/port: "8482"
+  horizontalPodAutoscaler:
+    # -- Use HPA for vmstorage component
+    enabled: false
+    # -- Maximum replicas for HPA to use to to scale the vmstorage component
+    maxReplicas: 10
+    # -- Minimum replicas for HPA to use to scale the vmstorage component
+    minReplicas: 2
+    # -- Metric for HPA to use to scale the vmstorage component
+    metrics: []
+    # -- Behavior settings for scaling by the HPA
+    behavior:
+      scaleDown:
+        selectPolicy: Disabled
   resources:
     limits:
       cpu: 100m
