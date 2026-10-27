@@ -10,6 +10,7 @@
       ./hardware-configuration.nix
       ./networking.nix
       ./video.nix
+      ./gitea.nix
       #./kubernetes-single-node.nix
     ];
 
@@ -23,17 +24,17 @@
   # Select internationalisation properties.
   i18n.defaultLocale = "en_US.UTF-8";
 
-  i18n.extraLocaleSettings = {
-    LC_ADDRESS = "ru_RU.UTF-8";
-    LC_IDENTIFICATION = "ru_RU.UTF-8";
-    LC_MEASUREMENT = "ru_RU.UTF-8";
-    LC_MONETARY = "ru_RU.UTF-8";
-    LC_NAME = "ru_RU.UTF-8";
-    LC_NUMERIC = "ru_RU.UTF-8";
-    LC_PAPER = "ru_RU.UTF-8";
-    LC_TELEPHONE = "ru_RU.UTF-8";
-    LC_TIME = "ru_RU.UTF-8";
-  };
+  # i18n.extraLocaleSettings = {
+  #   LC_ADDRESS = "ru_RU.UTF-8";
+  #   LC_IDENTIFICATION = "ru_RU.UTF-8";
+  #   LC_MEASUREMENT = "ru_RU.UTF-8";
+  #   LC_MONETARY = "ru_RU.UTF-8";
+  #   LC_NAME = "ru_RU.UTF-8";
+  #   LC_NUMERIC = "ru_RU.UTF-8";
+  #   LC_PAPER = "ru_RU.UTF-8";
+  #   LC_TELEPHONE = "ru_RU.UTF-8";
+  #   LC_TIME = "ru_RU.UTF-8";
+  # };
 
   # Enable the X11 windowing system.
   # You can disable this if you're only using the Wayland session.
@@ -120,6 +121,36 @@
   virtualisation.docker.enable = true;
 
   security.pki.certificateFiles = [
-    /home/alexmalder/Infrastructure/certs/homeserver.crt
+    /etc/nixos/certs/homeserver.crt
   ];
+
+  services.haproxy = {
+    enable = true;
+
+    config = ''
+      global
+        log stdout format raw local0
+
+      defaults
+        log global
+        mode http
+        option httplog
+        timeout connect 5s
+        timeout client  60s
+        timeout server  60s
+
+      frontend http_in
+        bind *:80
+        http-request redirect scheme https code 301
+
+      frontend https_in
+        bind *:443 ssl crt /etc/nixos/certs/homeserver.pem
+        http-request set-header Host %[req.hdr(Host)]
+        http-request set-header X-Forwarded-Proto https
+        default_backend app
+
+      backend app
+        server app1 127.0.0.1:3000 check
+    '';
+  };
 }

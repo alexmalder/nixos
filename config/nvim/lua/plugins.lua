@@ -21,23 +21,18 @@ require("lazy").setup({
   "hrsh7th/cmp-path",
   "hrsh7th/cmp-cmdline",
   "hrsh7th/nvim-cmp",
-  "L3MON4D3/LuaSnip",
   "williamboman/nvim-lsp-installer",
   "junegunn/fzf",
   "junegunn/fzf.vim",
   {
     'nvim-treesitter/nvim-treesitter',
-    --version = 'v0.10.0',
     lazy = false,
     build = ':TSUpdate'
   },
   "nvim-telescope/telescope.nvim",
   "windwp/nvim-autopairs",
-  "kyazdani42/nvim-web-devicons",
   "sbdchd/neoformat",
   { "lewis6991/gitsigns.nvim", dependencies = { "nvim-lua/plenary.nvim" } },
-  "sindrets/diffview.nvim",
-  "sharksforarms/neovim-rust",
   "ajeetdsouza/zoxide",
   "jvgrootveld/telescope-zoxide",
   {
