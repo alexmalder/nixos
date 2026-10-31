@@ -27,12 +27,60 @@ metadata:
   namespace: development
   name: development-admin
 rules:
+
 - apiGroups: ["", "extensions", "apps"]
-  resources: ["deployments", "pods", "services", "ingresses", "secrets", "configmaps", "roles"]
+  resources: ["deployments", "pods", "services", "ingresses", "secrets", "configmaps"]
   verbs: ["get", "list", "watch", "create", "update", "patch", "delete"]
+
+- apiGroups: ["rbac.authorization.k8s.io"]
+  resources: ["roles", "rolebindings"]
+  verbs: ["get", "list", "watch", "create", "update", "patch", "delete"]
+
 - apiGroups: ["", "apps", "networking.k8s.io"]
   resources: ["networkpolicies"]
-  verbs: ["get", "list", "watch"]
+  verbs: ["get", "list", "watch", "create", "update", "patch", "delete"]
+
+- apiGroups: ["batch"]
+  resources: ["jobs"]
+  verbs: ["get", "list", "watch", "create", "update", "patch", "delete"]
+
+- apiGroups: [""]
+  resources: ["events"]
+  verbs: ["get", "list", "create", "patch", "watch"]
+
+- apiGroups: ["argoproj.io"]
+  resources: ["applicationsets/finalizers"]
+  verbs: ["create", "delete", "get", "list", "patch", "update", "watch"]
+
+- apiGroups: ["argoproj.io"]
+  resources: ["applicationsets/status"]
+  verbs: ["get", "patch", "update"]
+
+- apiGroups: ["argoproj.io"]
+  resources: ["applications", "applicationsets"]
+  verbs: ["create", "delete", "get", "list", "patch", "update", "watch"]
+
+- apiGroups: ["argoproj.io"]
+  resources: ["appprojects"]
+  verbs: ["create", "get", "list", "update", "watch", "patch", "delete"]
+
+- apiGroups: ["coordination.k8s.io"]
+  resources: ["leases"]
+  resourceNames: ["58ac56fa.applicationsets.argoproj.io"]
+  verbs: ["get", "update"]
+
+- apiGroups: ["coordination.k8s.io"]
+  resources: ["leases"]
+  verbs: ["create"]
+
+- apiGroups: ["apps"]
+  resources: ["statefulsets"]
+  verbs: ["get", "list", "watch", "create", "update", "patch", "delete"]
+
+- apiGroups: ["networking.k8s.io"]
+  resources: ["ingresses"]
+  verbs: ["get", "list", "watch", "create", "update", "patch", "delete"]
+
 ---
 kind: RoleBinding
 apiVersion: rbac.authorization.k8s.io/v1

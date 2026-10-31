@@ -21,7 +21,7 @@ apiVersionOverrides: {}
 createAggregateRoles: false
 # -- Create cluster roles for cluster-wide installation.
 ## Used when you manage applications in the same cluster where Argo CD runs
-createClusterRoles: false
+createClusterRoles: true
 
 openshift:
   # -- enables using arbitrary uid for argo repo server
@@ -1063,7 +1063,7 @@ controller:
 
   serviceAccount:
     # -- Create a service account for the application controller
-    create: false
+    create: true
     # -- Service account name
     name: argocd-application-controller
     # -- Annotations applied to created service account
@@ -1491,7 +1491,7 @@ dex:
 
   serviceAccount:
     # -- Create dex service account
-    create: false
+    create: true
     # -- Dex service account name
     name: argocd-dex-server
     # -- Annotations applied to created service account
@@ -2112,7 +2112,7 @@ redisSecretInit:
 
   serviceAccount:
     # -- Create a service account for the redis pod
-    create: false
+    create: true
     # -- Service account name for redis pod
     name: ""
     # -- Annotations applied to created service account
@@ -2686,7 +2686,7 @@ server:
 
   serviceAccount:
     # -- Create server service account
-    create: false
+    create: true
     # -- Server service account name
     name: argocd-server
     # -- Annotations applied to created service account
@@ -3523,7 +3523,7 @@ repoServer:
   ## If create is set to true, make sure to uncomment the name and update the rbac section below
   serviceAccount:
     # -- Create repo server service account
-    create: false
+    create: true
     # -- Repo server service account name
     name: "" # "argocd-repo-server"
     # -- Annotations applied to created service account
@@ -3732,7 +3732,7 @@ applicationSet:
 
   serviceAccount:
     # -- Create ApplicationSet controller service account
-    create: false
+    create: true
     # -- ApplicationSet controller service account name
     name: argocd-applicationset-controller
     # -- Annotations applied to created service account
@@ -4409,7 +4409,7 @@ notifications:
 
   serviceAccount:
     # -- Create notifications controller service account
-    create: false
+    create: true
     # -- Notification controller service account name
     name: argocd-notifications-controller
     # -- Annotations applied to created service account
@@ -4785,7 +4785,7 @@ commitServer:
 
   serviceAccount:
     # -- Create commit server service account
-    create: false
+    create: true
     # -- commit server service account name
     name: argocd-commit-server
     # -- Annotations applied to created service account
