@@ -66,12 +66,7 @@ rules:
 
 - apiGroups: ["coordination.k8s.io"]
   resources: ["leases"]
-  resourceNames: ["58ac56fa.applicationsets.argoproj.io"]
-  verbs: ["get", "update"]
-
-- apiGroups: ["coordination.k8s.io"]
-  resources: ["leases"]
-  verbs: ["create"]
+  verbs: ["create", "get", "update"]
 
 - apiGroups: ["apps"]
   resources: ["statefulsets"]
