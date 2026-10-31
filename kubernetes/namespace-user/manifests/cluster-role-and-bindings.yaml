@@ -1,0 +1,68 @@
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  name: demo-user-argocd-crd
+rules:
+- apiGroups: ["apiextensions.k8s.io"]
+  resources: ["customresourcedefinitions"]
+  resourceNames:
+  - applications.argoproj.io
+  - applicationsets.argoproj.io
+  - appprojects.argoproj.io
+  verbs: ["get"]
+- apiGroups: ["rbac.authorization.k8s.io"]
+  resources: ["clusterroles"]
+  resourceNames: 
+    - argo-cd-argocd-application-controller
+    - argo-cd-argocd-notifications-controller
+    - argo-cd-argocd-server
+  verbs: ["get"]
+- apiGroups: ["rbac.authorization.k8s.io"]
+  resources: ["clusterrolebindings"]
+  resourceNames:
+    - argo-cd-argocd-application-controller
+    - argo-cd-argocd-notifications-controller
+    - argo-cd-argocd-server
+  verbs: ["get"]
+- apiGroups: ["rbac.authorization.k8s.io"]
+  resources: ["roles"]
+  resourceNames: 
+    - argo-cd-argocd-application-controller
+    - argo-cd-argocd-applicationset-controller
+    - argo-cd-argocd-notifications-controller
+    - argo-cd-argocd-server
+    - argo-cd-argocd-dex-server
+  verbs: ["get"]
+- apiGroups: ["rbac.authorization.k8s.io"]
+  resources: ["rolebindings"]
+  resourceNames:
+    - argo-cd-argocd-application-controller
+    - argo-cd-argocd-applicationset-controller
+    - argo-cd-argocd-notifications-controller
+    - argo-cd-argocd-server
+    - argo-cd-argocd-dex-server
+  verbs: ["get"]
+- apiGroups: ["apps"]
+  resources: ["statefulsets"]
+  resourceNames:
+    - argo-cd-argocd-application-controller
+  verbs: ["get"]
+- apiGroups: ["networking.k8s.io"]
+  resources: ["ingresses"]
+  resourceNames:
+    - argo-cd-argocd-server
+  verbs: ["get"]
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
+metadata:
+  name: demo-user-argocd-crd
+subjects:
+- kind: ServiceAccount
+  name: demo-user
+  namespace: development
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  name: demo-user-argocd-crd

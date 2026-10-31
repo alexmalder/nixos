@@ -21,7 +21,7 @@ apiVersionOverrides: {}
 createAggregateRoles: false
 # -- Create cluster roles for cluster-wide installation.
 ## Used when you manage applications in the same cluster where Argo CD runs
-createClusterRoles: true
+createClusterRoles: false
 
 openshift:
   # -- enables using arbitrary uid for argo repo server
@@ -46,7 +46,7 @@ certificate:
 global:
   # -- Default domain used by all components
   ## Used for ingresses, certificates, SSO, notifications, etc.
-  domain: argocd.homeserver.local.test
+  domain: argocd.homeserver.local
 
   # -- Runtime class name for all components
   runtimeClassName: ""
