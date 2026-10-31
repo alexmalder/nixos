@@ -14,9 +14,11 @@
   networking.hosts = {
     "192.168.0.91" = [ 
       "argocd.homeserver.local" 
-      "vicrotia-metrics.homeserver.local"
       "grafana.homeserver.local"
       "kubernetes.default.svc"
+    ];
+    "192.168.0.90" = [
+      "git.homeserver.local"
     ];
   };
 
@@ -39,7 +41,7 @@
   # networking.firewall.enable = false;
 
   # Configure network proxy if necessary
-  #networking.proxy.default = "socks5://127.0.0.1:1080/";
-  #networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
+  #networking.proxy.default = "socks5://127.0.0.1:10808/";
+  #networking.proxy.noProxy = "127.0.0.1,localhost,homeserver.local";
 
 }

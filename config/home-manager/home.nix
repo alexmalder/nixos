@@ -56,6 +56,8 @@
     gnumake
     xdotool
     openssl_4_0
+    net-tools
+    xray
 
     # kubernetes
     kubernetes-helm
@@ -77,6 +79,7 @@
     yaml-language-server
     bash-language-server
     markdownlint-cli
+    tree-sitter
 
     # windows installer
     woeusb-ng
@@ -85,9 +88,9 @@
     # gui apps
     telegram-desktop
     google-chrome
-    floorp-bin
     vscode
-    qtractor
+    ardour_8
+    qjackctl
 
     # kde user apps
     kdePackages.kate
@@ -104,5 +107,11 @@
     # fonts
     helvetica-neue-lt-std    
     nerd-fonts.iosevka-term
+
+    # wine
+    wineWowPackages.stable
+    winetricks
+    yabridge
+    yabridgectl
   ];
 }

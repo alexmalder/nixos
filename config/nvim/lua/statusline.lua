@@ -1,7 +1,7 @@
 local custom_theme_lualine = require'lualine.themes.iceberg_dark'
 
 -- Change the background of lualine_c section for normal mode
-custom_theme_lualine.normal.c.bg = 0
+--custom_theme_lualine.normal.c.bg = 0
 
 require('lualine').setup {
   sections = {

@@ -23,7 +23,6 @@ vim.opt.number = true
 
 vim.diagnostic.config({ virtual_text = false })
 
---vim.cmd[[autocmd BufReadPost * if @% !~# '\.git[\/\\]COMMIT_EDITMSG$' && line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g`\"" | endif]]
 --vim.cmd[[map gf :e <cfile><CR>]]
 vim.o.updatetime = 250
 
@@ -41,7 +40,7 @@ vim.opt.termguicolors = true
 
 -- local neogit = require('neogit')
 -- neogit.setup {}
---
+
 vim.cmd[[set linebreak]]
 vim.cmd[[set textwidth=80]]
 

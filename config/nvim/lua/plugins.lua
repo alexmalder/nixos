@@ -21,6 +21,7 @@ require("lazy").setup({
   "hrsh7th/cmp-path",
   "hrsh7th/cmp-cmdline",
   "hrsh7th/nvim-cmp",
+  "L3MON4D3/LuaSnip",
   "williamboman/nvim-lsp-installer",
   "junegunn/fzf",
   "junegunn/fzf.vim",
@@ -73,18 +74,27 @@ require("lazy").setup({
       opts = {},
   },
   {
-    "kdheepak/monochrome.nvim",
-    -- Optionally install Lush. Allows for more configuration or extending the colorscheme
-    -- If you don't want to install lush, make sure to set g:zenbones_compat = 1
-    -- In Vim, compat mode is turned on as Lush only works in Neovim.
-    dependencies = "rktjmp/lush.nvim",
+    "metalelf0/black-metal-theme-neovim",
     lazy = false,
     priority = 1000,
-    -- you can set set configuration options here
     config = function()
-      vim.cmd.colorscheme('monochrome')
-    end
+      require("black-metal").setup({
+        -- optional configuration here, e.g.:
+        trve = true, -- switch this to false if you want light variants
+        theme = "thyrfing",
+      })
+      require("black-metal").load()
+    end,
   },
+  --{
+  --  "kdheepak/monochrome.nvim",
+  --  dependencies = "rktjmp/lush.nvim",
+  --  lazy = false,
+  --  priority = 1000,
+  --  config = function()
+  --    vim.cmd.colorscheme('monochrome')
+  --  end
+  --},
   {
     "hedyhli/outline.nvim",
     config = function()
@@ -107,5 +117,32 @@ require("lazy").setup({
       "nvim-telescope/telescope.nvim", -- optional
       "ibhagwan/fzf-lua" -- optional
     },
+  },
+  {
+    "ray-x/go.nvim",
+    dependencies = {  -- optional packages
+      "ray-x/guihua.lua",
+      "neovim/nvim-lspconfig",
+      -- { "nvim-treesitter/nvim-treesitter", branch = 'main' } -- optional for master version
+    },
+    opts = function()
+
+      require("go").setup(opts)
+      local format_sync_grp = vim.api.nvim_create_augroup("GoFormat", {})
+      vim.api.nvim_create_autocmd("BufWritePre", {
+        pattern = "*.go",
+        callback = function()
+        require('go.format').goimports()
+        end,
+        group = format_sync_grp,
+      })
+      return {
+        -- lsp_keymaps = false,
+        -- other options
+      }
+    end,
+    event = {"CmdlineEnter"},
+    ft = {"go", 'gomod'},
+    build = ':lua require("go.install").update_all_sync()' -- if you need to install/update all binaries
   }
 })
