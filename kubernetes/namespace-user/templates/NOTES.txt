@@ -1,0 +1,14 @@
+Development access resources have been installed.
+
+Namespace:       {{ .Values.namespace.name }}
+ServiceAccount:  {{ .Values.serviceAccount.name }}
+Role:            {{ .Values.role.name }}
+RoleBinding:     {{ .Values.roleBinding.name }}
+ClusterRole:     {{ .Values.argocdCrd.clusterRoleName }}
+
+Check the resources:
+  kubectl get serviceaccount,role,rolebinding -n {{ .Values.namespace.name }}
+  kubectl get clusterrole,clusterrolebinding {{ .Values.argocdCrd.clusterRoleName }}
+
+To request a service account token:
+  kubectl create token {{ .Values.serviceAccount.name }} -n {{ .Values.namespace.name }}

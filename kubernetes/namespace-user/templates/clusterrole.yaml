@@ -1,0 +1,11 @@
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  name: {{ .Values.argocdCrd.clusterRoleName }}
+rules:
+  - apiGroups: ["apiextensions.k8s.io"]
+    resources: ["customresourcedefinitions"]
+    resourceNames:
+      - {{ .Values.argocdCrd.resourceName | quote }}
+    verbs:
+      {{- toYaml .Values.argocdCrd.verbs | nindent 6 }}

@@ -1,0 +1,104 @@
+---
+# Source: development-access/templates/namespace.yaml
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: development
+  labels:
+    name: development
+---
+# Source: development-access/templates/serviceaccount.yaml
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: demo-user
+  namespace: development
+---
+# Source: development-access/templates/token-secret.yaml
+apiVersion: v1
+kind: Secret
+metadata:
+  name: demo-user-token
+  namespace: development
+  annotations:
+    kubernetes.io/service-account.name: "demo-user"
+type: kubernetes.io/service-account-token
+---
+# Source: development-access/templates/clusterrole.yaml
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  name: demo-user-argocd-crd
+rules:
+  - apiGroups: ["apiextensions.k8s.io"]
+    resources: ["customresourcedefinitions"]
+    resourceNames:
+      - "applications.argoproj.io"
+    verbs:
+      - get
+---
+# Source: development-access/templates/clusterrolebinding.yaml
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
+metadata:
+  name: demo-user-argocd-crd
+subjects:
+  - kind: ServiceAccount
+    name: demo-user
+    namespace: development
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  name: demo-user-argocd-crd
+---
+# Source: development-access/templates/role.yaml
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata:
+  name: development-admin
+  namespace: development
+rules:
+  - apiGroups:
+    - ""
+    - extensions
+    - apps
+    resources:
+    - deployments
+    - pods
+    - services
+    - ingresses
+    - secrets
+    - configmaps
+    verbs:
+    - get
+    - list
+    - watch
+    - create
+    - update
+    - patch
+    - delete
+  - apiGroups:
+    - ""
+    - apps
+    - networking.k8s.io
+    resources:
+    - networkpolicies
+    verbs:
+    - get
+    - list
+    - watch
+---
+# Source: development-access/templates/rolebinding.yaml
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: development-admin
+  namespace: development
+subjects:
+  - kind: ServiceAccount
+    name: demo-user
+    namespace: development
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: Role
+  name: development-admin

@@ -1,0 +1,6 @@
+apiVersion: v2
+name: development-access
+description: Namespace access and Argo CD CRD permissions for a demo user
+type: application
+version: 0.1.0
+appVersion: "1.0.0"

@@ -1,0 +1,37 @@
+---
+namespace:
+  name: development
+  labels:
+    name: development
+
+serviceAccount:
+  name: demo-user
+
+role:
+  name: development-admin
+  rules:
+    - apiGroups: ["", "extensions", "apps"]
+      resources:
+        - deployments
+        - pods
+        - services
+        - ingresses
+        - secrets
+        - configmaps
+      verbs: ["get", "list", "watch", "create", "update", "patch", "delete"]
+    - apiGroups: ["", "apps", "networking.k8s.io"]
+      resources:
+        - networkpolicies
+      verbs: ["get", "list", "watch"]
+
+roleBinding:
+  name: development-admin
+
+argocdCrd:
+  clusterRoleName: demo-user-argocd-crd
+  resourceName: applications.argoproj.io
+  verbs: ["get"]
+
+tokenSecret:
+  name: demo-user-token
+  enabled: true
