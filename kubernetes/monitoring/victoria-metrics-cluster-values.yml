@@ -12,7 +12,7 @@ vmselect:
   podAnnotations:
     prometheus.io/scrape: "true"
     prometheus.io/port: "8481"
-  replicaCount: 2
+  replicaCount: 1
   horizontalPodAutoscaler:
     # -- Use HPA for vmselect component
     enabled: false
@@ -36,7 +36,7 @@ vminsert:
   podAnnotations:
     prometheus.io/scrape: "true"
     prometheus.io/port: "8480"
-  replicaCount: 2
+  replicaCount: 1
   horizontalPodAutoscaler:
     # -- Use HPA for vminsert component
     enabled: false
@@ -60,7 +60,7 @@ vmstorage:
   podAnnotations:
       prometheus.io/scrape: "true"
       prometheus.io/port: "8482"
-  replicaCount: 2
+  replicaCount: 1
   horizontalPodAutoscaler:
     # -- Use HPA for vmstorage component
     enabled: false
