@@ -22,6 +22,7 @@ export GOPATH="$HOME/.go"
 export PATH="$PATH:$HOME/.go/bin"
 export PATH="$PATH:$GOROOT/bin:$GOPATH/bin"
 export PATH="$PATH:$HOME/.cargo/bin"
+export PATH="$PATH:/usr/local/bin"
 export HELM_EXPERIMENTAL_OCI="1"
 export PASSWORD_STORE_DIR="$HOME/Git/store"
 export LANG=en_US.UTF-8

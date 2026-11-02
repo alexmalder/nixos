@@ -91,6 +91,7 @@
     vscode
     ardour_8
     qjackctl
+    virt-manager
 
     # kde user apps
     kdePackages.kate
