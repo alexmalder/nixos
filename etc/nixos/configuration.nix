@@ -37,15 +37,13 @@
   #   LC_TIME = "ru_RU.UTF-8";
   # };
 
-  # Enable the X11 windowing system.
-  # You can disable this if you're only using the Wayland session.
+  # Enable the x11 and plasma with autologin
   services.xserver.enable = true;
-
-  # Enable the KDE Plasma Desktop Environment.
   services.displayManager.sddm.enable = true;
   services.desktopManager.plasma6.enable = true;
-  #services.displayManager.autoLogin.enable = true;
-  #services.displayManager.autoLogin.user = "alexmalder";
+  services.displayManager.autoLogin.enable = true;
+  services.displayManager.autoLogin.user = "alexmalder";
+  services.displayManager.defaultSession = "plasmax11";
 
   # Configure keymap in X11
   services.xserver.xkb = {

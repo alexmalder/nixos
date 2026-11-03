@@ -108,6 +108,7 @@
     # fonts
     helvetica-neue-lt-std    
     nerd-fonts.iosevka-term
+    nerd-fonts.roboto-mono
 
     # wine
     wineWowPackages.stable
