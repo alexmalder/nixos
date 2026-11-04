@@ -1,4 +1,4 @@
-config, pkgs, ... }:
+{ config, pkgs, ... }:
 
 let
   # For single-node setups with easyCerts
