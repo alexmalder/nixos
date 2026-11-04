@@ -59,12 +59,6 @@
     net-tools
     xray
 
-    # kubernetes
-    kubernetes-helm
-    argocd
-    nerdctl
-    mosh
-
     # golang
     go
     gopls 
