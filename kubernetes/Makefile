@@ -1,5 +1,6 @@
 setup_local_path:
 	kubectl apply -f local-path-storage.yaml
+	kubectl patch storageclass local-path -p '{"metadata": {"annotations":{"storageclass.kubernetes.io/is-default-class":"true"}}}'
 
 setup_helm_repos:
 	helm repo add ingress-nginx https://kubernetes.github.io/ingress-nginx
@@ -35,3 +36,10 @@ install_vm_agent:
 
 install_grafana:
 	helm upgrade --install grafana grafana-community/grafana --version 14.0.1 -n vm -f monitoring/grafana.yaml
+
+get_argocd_admin_password:
+	kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath="{.data.password}" | base64 -d
+
+get_grafana_admin_password:
+	kubectl get secrets -n vm grafana -o jsonpath="{.data.admin-password}" | base64 -d
+

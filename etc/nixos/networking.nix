@@ -12,7 +12,7 @@
 
   # Setup /etc/hosts
   networking.hosts = {
-    "192.168.0.91" = [ 
+    "192.168.0.100" = [ 
       "argocd.homeserver.local" 
       "grafana.homeserver.local"
       "kubernetes.default.svc"
@@ -29,9 +29,9 @@
       22
       80
       443
-      # 6443 
+      6443 
       # 8888
-      # 10250
+      10250
     ];
   };
 

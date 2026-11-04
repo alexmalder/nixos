@@ -17,11 +17,11 @@
         timeout server  60s
 
       frontend http_in
-        bind *:80
+        bind 192.168.0.90:80
         http-request redirect scheme https code 301
 
       frontend https_in
-        bind *:443 ssl crt /etc/nixos/certs/homeserver.pem
+        bind 192.168.0.90:443 ssl crt /etc/nixos/certs/homeserver.pem
         http-request set-header Host %[req.hdr(Host)]
         http-request set-header X-Forwarded-Proto https
         default_backend app
