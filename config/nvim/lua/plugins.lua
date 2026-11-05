@@ -31,9 +31,26 @@ require("lazy").setup({
     build = ':TSUpdate'
   },
   "nvim-telescope/telescope.nvim",
-  "windwp/nvim-autopairs",
-  "sbdchd/neoformat",
-  { "lewis6991/gitsigns.nvim", dependencies = { "nvim-lua/plenary.nvim" } },
+  {
+    "windwp/nvim-autopairs",
+    config = function()
+      require'nvim-autopairs'.setup{
+        -- autopairs config
+      }
+    end
+  },
+    "sbdchd/neoformat",
+  {
+    "lewis6991/gitsigns.nvim",
+    config = function()
+      require'gitsigns'.setup{
+        -- gitsigns config
+      }
+    end,
+    dependencies = { 
+      "nvim-lua/plenary.nvim" 
+    }
+  },
   "ajeetdsouza/zoxide",
   "jvgrootveld/telescope-zoxide",
   {
@@ -45,12 +62,10 @@ require("lazy").setup({
   {
     "NeogitOrg/neogit",
     dependencies = {
-      "nvim-lua/plenary.nvim",         -- required
-      "sindrets/diffview.nvim",        -- optional - Diff integration
-
-      -- Only one of these is needed, not both.
-      "nvim-telescope/telescope.nvim", -- optional
-      "ibhagwan/fzf-lua",              -- optional
+      "nvim-lua/plenary.nvim",
+      "sindrets/diffview.nvim",
+      "nvim-telescope/telescope.nvim",
+      "ibhagwan/fzf-lua",
     },
     config = true
   },
@@ -66,11 +81,7 @@ require("lazy").setup({
   },
   {
       'MeanderingProgrammer/render-markdown.nvim',
-      dependencies = { 'nvim-treesitter/nvim-treesitter', 'echasnovski/mini.nvim' }, -- if you use the mini.nvim suite
-      dependencies = { 'nvim-treesitter/nvim-treesitter', 'echasnovski/mini.icons' }, -- if you use standalone mini plugins
-      dependencies = { 'nvim-treesitter/nvim-treesitter', 'nvim-tree/nvim-web-devicons' }, -- if you prefer nvim-web-devicons
-      ---@module 'render-markdown'
-      ---@type render.md.UserConfig
+      dependencies = { 'nvim-treesitter/nvim-treesitter', 'nvim-tree/nvim-web-devicons' },
       opts = {},
   },
   {
@@ -108,7 +119,12 @@ require("lazy").setup({
       }
     end,
   },
-  --{ 'aveplen/ruscmd.nvim' },
+  { 
+    'aveplen/ruscmd.nvim',
+    config = function()
+      require'ruscmd'.setup{}
+    end
+  },
   {
     "alexmalder/yaml.nvim",
     ft = { "yaml" }, -- optional
@@ -126,7 +142,6 @@ require("lazy").setup({
       -- { "nvim-treesitter/nvim-treesitter", branch = 'main' } -- optional for master version
     },
     opts = function()
-
       require("go").setup(opts)
       local format_sync_grp = vim.api.nvim_create_augroup("GoFormat", {})
       vim.api.nvim_create_autocmd("BufWritePre", {

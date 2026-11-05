@@ -20,28 +20,7 @@ vim.opt.undolevels = 1000
 vim.opt.undoreload = 10000
 vim.opt.signcolumn = "yes"
 vim.opt.number = true
-
-vim.diagnostic.config({ virtual_text = false })
-
---vim.cmd[[map gf :e <cfile><CR>]]
-vim.o.updatetime = 250
-
--- Show line diagnostics automatically in hover window
-vim.cmd[[autocmd CursorHold,CursorHoldI * lua vim.diagnostic.open_float(nil, {focus=false})]]
-
--- autopairs
-require'nvim-autopairs'.setup{}
-
--- git
-require('gitsigns').setup{}
-vim.cmd[[set guicursor=v-c-sm:block,n-i-ci-ve:ver25,r-cr-o:ver25]]
-
+vim.opt.colorcolumn = "80"
+vim.opt.textwidth = 80
 vim.opt.termguicolors = true
-
--- local neogit = require('neogit')
--- neogit.setup {}
-
-vim.cmd[[set linebreak]]
-vim.cmd[[set textwidth=80]]
-
---require('ruscmd').setup{}
+vim.o.updatetime = 250
