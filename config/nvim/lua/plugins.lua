@@ -39,7 +39,20 @@ require("lazy").setup({
       }
     end
   },
-    "sbdchd/neoformat",
+  {
+    "stevearc/conform.nvim",
+    config = function()
+      require("conform").setup({
+        formatters_by_ft = {
+          markdown = { "prettier" }, -- or { "prettierd" } for daemon mode
+        },
+        format_on_save = {
+          timeout_ms = 500,
+          lsp_format = "fallback", -- Use LSP if no formatter is found
+        },
+      })
+    end,
+  },
   {
     "lewis6991/gitsigns.nvim",
     config = function()

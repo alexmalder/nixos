@@ -20,7 +20,12 @@ vim.opt.undolevels = 1000
 vim.opt.undoreload = 10000
 vim.opt.signcolumn = "yes"
 vim.opt.number = true
-vim.opt.colorcolumn = "80"
-vim.opt.textwidth = 80
 vim.opt.termguicolors = true
 vim.o.updatetime = 250
+
+--vim.api.nvim_create_autocmd("BufWritePre", {
+--  pattern = "*",
+--  callback = function(args)
+--    require("conform").format({ bufnr = args.buf })
+--  end,
+--})

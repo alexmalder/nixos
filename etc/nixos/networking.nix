@@ -12,11 +12,13 @@
 
   # Setup /etc/hosts
   networking.hosts = {
+    # ingress
     "192.168.0.100" = [ 
       "argocd.homeserver.local" 
       "grafana.homeserver.local"
       "kubernetes.default.svc"
     ];
+    # haproxy
     "192.168.0.90" = [
       "git.homeserver.local"
     ];
@@ -43,5 +45,4 @@
   # Configure network proxy if necessary
   #networking.proxy.default = "socks5://127.0.0.1:10808/";
   #networking.proxy.noProxy = "127.0.0.1,localhost,homeserver.local";
-
 }

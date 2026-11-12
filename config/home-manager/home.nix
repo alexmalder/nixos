@@ -74,15 +74,11 @@
     bash-language-server
     markdownlint-cli
     tree-sitter
-
-    # windows installer
-    woeusb-ng
-    ntfs3g
+    prettier
 
     # gui apps
     telegram-desktop
     google-chrome
-    vscode
     ardour_8
     qjackctl
     virt-manager
@@ -102,12 +98,7 @@
     # fonts
     helvetica-neue-lt-std    
     nerd-fonts.iosevka-term
-    nerd-fonts.roboto-mono
+    #nerd-fonts.roboto-mono
 
-    # wine
-    wineWowPackages.stable
-    winetricks
-    yabridge
-    yabridgectl
   ];
 }
