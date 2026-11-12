@@ -2,7 +2,6 @@
 diff_cmd="diff -r --color"
 
 # nix general config
-
 $diff_cmd etc/nixos /etc/nixos
 
 # nix packages settings
@@ -14,3 +13,7 @@ $diff_cmd config/home-manager $HOME/.config/home-manager
 # dotfiles
 $diff_cmd config/nvim $HOME/.config/nvim
 $diff_cmd config/fish/config.fish $HOME/.config/fish/config.fish 
+
+# user scripts
+
+$diff_cmd bin /usr/local/bin
