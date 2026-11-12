@@ -17,3 +17,6 @@ $diff_cmd config/fish/config.fish $HOME/.config/fish/config.fish
 # user scripts
 
 $diff_cmd bin /usr/local/bin
+
+# tmux
+$diff_cmd config/tmux $HOME/.config/tmux
