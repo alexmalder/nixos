@@ -1,3 +1,3 @@
 #!/run/current-system/sw/bin/bash
 
-tmux new -s term || tmux attach
+tmux -f "$HOME/.config/tmux/tmux.conf" new -s term || tmux attach
