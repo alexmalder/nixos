@@ -14,6 +14,7 @@
       ./gitea.nix
       ./haproxy.nix
       ./kubernetes-single-node.nix
+      ./logging.nix
     ];
 
   # Use the systemd-boot EFI boot loader.
@@ -111,12 +112,7 @@
     /etc/nixos/certs/homeserver.crt
   ];
 
-  services.loki = {
-    enable = true;
-    configFile = ./loki-config.yaml;
-  };
-
-  # fileSystems."/home/alexmalder/.local/share/Steam" = {
+  # fileSystems."/var/lib/containerd" = {
   #   device = "/dev/disk/by-uuid/74e88012-0632-4c5d-96b1-42c597c39e60";
   #   fsType = "ext4";
   #   options = [ "defaults" "nofail" ];
