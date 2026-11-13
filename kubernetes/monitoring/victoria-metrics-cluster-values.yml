@@ -55,11 +55,36 @@ vminsert:
     requests:
       cpu: 100m
       memory: 256Mi
+  ingress:
+    enabled: true
+    annotations: {}
+    #   kubernetes.io/ingress.class: nginx
+    #   kubernetes.io/tls-acme: 'true'
+
+    extraLabels: {}
+
+    hosts:
+      - name: vminsert.homeserver.local
+        path:
+          - /insert
+        port: http
+
+    # -- Array of TLS objects
+    tls:
+      - secretName: homeserver-tls
+        hosts:
+          - vminsert.homeserver.local
+
+    # -- Ingress controller class name
+    ingressClassName: "nginx"
+
+    # -- Ingress path type
+    pathType: Prefix
 
 vmstorage:
   podAnnotations:
-      prometheus.io/scrape: "true"
-      prometheus.io/port: "8482"
+    prometheus.io/scrape: "true"
+    prometheus.io/port: "8482"
   replicaCount: 1
   horizontalPodAutoscaler:
     # -- Use HPA for vmstorage component

@@ -17,6 +17,7 @@
       "argocd.homeserver.local" 
       "grafana.homeserver.local"
       "kubernetes.default.svc"
+      "vminsert.homeserver.local"
     ];
     # haproxy
     "192.168.0.90" = [
@@ -29,13 +30,20 @@
   networking.firewall = {
     enable = true;
     allowedTCPPorts = [
+      # ssh
       22
+      # haproxy
       80
       443
-      3100
+      # kubernetes
       6443 
-      # 8888
       10250
+      # loki
+      3100
+      # node exporter
+      9000
+      # systemd exporter
+      9558
     ];
   };
 

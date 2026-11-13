@@ -112,6 +112,18 @@
     /etc/nixos/certs/homeserver.crt
   ];
 
+  # services.prometheus.exporters.systemd = {
+  #   enable = true;
+  #   port = 9558;
+  # };
+
+  services.prometheus.exporters.node = {
+    enable = true;
+    port = 9000;
+  };
+
+  boot.kernelParams = [ "systemd.swap=0" ];
+
   # fileSystems."/var/lib/containerd" = {
   #   device = "/dev/disk/by-uuid/74e88012-0632-4c5d-96b1-42c597c39e60";
   #   fsType = "ext4";

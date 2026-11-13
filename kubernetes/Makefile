@@ -39,7 +39,7 @@ install_grafana:
 	helm upgrade -i grafana grafana-community/grafana --version 14.0.1 -n vm -f monitoring/grafana.yaml
 
 install_promtail:
-	helm upgrade -i promtail grafana/promtail -n vm -f promtail.yaml --version 6.17.1
+	helm upgrade -i promtail grafana/promtail -n vm -f monitoring/promtail.yaml --version 6.17.1
 
 get_argocd_admin_password:
 	kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath="{.data.password}" | base64 -d

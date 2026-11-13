@@ -14,6 +14,18 @@
         journald = {
           type = "journald";
         };
+
+        # Scrape metrics from both local endpoints
+        prometheus_metrics = {
+          type = "prometheus_scrape";
+          # scrape node exporter and systemd exporter metrics
+          endpoints = [
+            "http://192.168.0.90:9000/metrics"
+            #"http://192.168.0.90:9558/metrics"
+          ];
+          scrape_interval_secs = 15;
+        };
+
       };
 
       transforms = {
@@ -64,6 +76,14 @@
             pid = "{{ pid }}";
             cmdline = "{{ cmdline }}";
           };
+        };
+
+        # Push scraped metrics to VictoriaMetrics
+        victoria_metrics = {
+          type = "prometheus_remote_write";
+          inputs = [ "prometheus_metrics" ];
+          endpoint = "https://vminsert.homeserver.local/insert/0/prometheus/api/v1/write";
+          healthcheck.enabled = false;
         };
       };
     };
