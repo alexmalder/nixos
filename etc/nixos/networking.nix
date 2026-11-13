@@ -21,6 +21,7 @@
     # haproxy
     "192.168.0.90" = [
       "git.homeserver.local"
+      "loki.homeserver.local"
     ];
   };
 
@@ -31,6 +32,7 @@
       22
       80
       443
+      3100
       6443 
       # 8888
       10250

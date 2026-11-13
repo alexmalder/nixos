@@ -1,2 +1,4 @@
 config/nvim/lazy-lock.json
 config/tmux/plugins
+etc/nixos/certs
+etc/nixos/hardware-configuration.nix

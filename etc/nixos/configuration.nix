@@ -111,6 +111,11 @@
     /etc/nixos/certs/homeserver.crt
   ];
 
+  services.loki = {
+    enable = true;
+    configFile = ./loki-config.yaml;
+  };
+
   # fileSystems."/home/alexmalder/.local/share/Steam" = {
   #   device = "/dev/disk/by-uuid/74e88012-0632-4c5d-96b1-42c597c39e60";
   #   fsType = "ext4";

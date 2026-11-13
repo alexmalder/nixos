@@ -157,7 +157,7 @@ testFramework:
     privileged: false
     capabilities:
       drop:
-      - ALL
+        - ALL
     seccompProfile:
       type: RuntimeDefault
     readOnlyRootFilesystem: true
@@ -195,7 +195,7 @@ containerSecurityContext:
   privileged: false
   capabilities:
     drop:
-    - ALL
+      - ALL
   seccompProfile:
     type: RuntimeDefault
   readOnlyRootFilesystem: true
@@ -213,7 +213,6 @@ extraConfigmapMounts: []
   #   readOnly: true
   #   optional: false
 
-
 extraEmptyDirMounts: []
   # - name: provisioning-notifiers
   #   mountPath: /etc/grafana/provisioning/notifiers
@@ -225,7 +224,6 @@ extraEmptyDirMounts: []
 # `cloudwatch`) when listed in `plugins:`. Side effect: any bundled plugin not
 # explicitly listed in `plugins:` will not be available.
 shadowBundledPlugins: false
-
 
 # Apply extra labels to common labels.
 # @schema additionalProperties:{"type":"string"}
@@ -251,7 +249,7 @@ downloadDashboards:
     allowPrivilegeEscalation: false
     capabilities:
       drop:
-      - ALL
+        - ALL
     seccompProfile:
       type: RuntimeDefault
     readOnlyRootFilesystem: true
@@ -266,7 +264,7 @@ downloadDashboards:
 
 ## ConfigMap Annotations
 # configMapAnnotations: {}
-  # argocd.argoproj.io/sync-options: Replace=true
+# argocd.argoproj.io/sync-options: Replace=true
 
 ## Pod Labels
 # podLabels: {}
@@ -291,7 +289,8 @@ service:
   loadBalancerClass: ""
   loadBalancerSourceRanges: []
   port: 80
-  targetPort: 3000
+  targetPort:
+    3000
     # targetPort: 4181 To be used with a proxy extraContainer
   ## Service annotations. Can be templated.
   # @schema additionalProperties:{"type":"string"}
@@ -370,7 +369,6 @@ ingress:
   #       name: ssl-redirect
   #       port:
   #         name: use-annotation
-
 
   tls:
     - secretName: homeserver-tls
@@ -818,6 +816,13 @@ datasources:
         isDefault: true
         updateIntervalSeconds: 10
         editable: true
+      - name: Loki
+        type: loki
+        access: proxy
+        url: https://loki.homeserver.local
+        basicAuth: false
+        jsonData:
+          insecureSkipVerify: true
 
 ## Configure grafana alerting (can be templated)
 ## ref: https://docs.grafana.com/alerting/set-up/provision-alerting-resources/file-provisioning/
@@ -939,14 +944,14 @@ dashboardProviders:
   dashboardproviders.yaml:
     apiVersion: 1
     providers:
-    - name: 'default'
-      orgId: 1
-      folder: ''
-      type: file
-      disableDeletion: true
-      editable: true
-      options:
-        path: /var/lib/grafana/dashboards/default
+      - name: "default"
+        orgId: 1
+        folder: ""
+        type: file
+        disableDeletion: true
+        editable: true
+        options:
+          path: /var/lib/grafana/dashboards/default
 
 ## Configure how curl fetches remote dashboards. The beginning dash is required.
 ## NOTE: This sets the default short flags for all dashboards, but these
@@ -1047,31 +1052,31 @@ grafana.ini:
   unified_storage:
     index_path: /var/lib/grafana-search/bleve
 ## grafana Authentication can be enabled with the following values on grafana.ini
-  # server:
-  # The full public facing url you use in browser, used for redirects and emails
-  #    root_url:
-  # https://grafana.com/docs/grafana/latest/auth/github/#enable-github-in-grafana
-  # auth.github:
-  #    enabled: false
-  #    allow_sign_up: false
-  #    scopes: user:email,read:org
-  #    auth_url: https://github.com/login/oauth/authorize
-  #    token_url: https://github.com/login/oauth/access_token
-  #    api_url: https://api.github.com/user
-  #    team_ids:
-  #    allowed_organizations:
-  #    client_id:
-  #    client_secret:
+# server:
+# The full public facing url you use in browser, used for redirects and emails
+#    root_url:
+# https://grafana.com/docs/grafana/latest/auth/github/#enable-github-in-grafana
+# auth.github:
+#    enabled: false
+#    allow_sign_up: false
+#    scopes: user:email,read:org
+#    auth_url: https://github.com/login/oauth/authorize
+#    token_url: https://github.com/login/oauth/access_token
+#    api_url: https://api.github.com/user
+#    team_ids:
+#    allowed_organizations:
+#    client_id:
+#    client_secret:
 ## LDAP Authentication can be enabled with the following values on grafana.ini
 ## NOTE: Grafana will fail to start if the value for ldap.toml is invalid
-  # auth.ldap:
-  #   enabled: true
-  #   allow_sign_up: true
-  #   config_file: /etc/grafana/ldap.toml
+# auth.ldap:
+#   enabled: true
+#   allow_sign_up: true
+#   config_file: /etc/grafana/ldap.toml
 ## Grafana's alerting configuration
-  # unified_alerting:
-  #   enabled: true
-  #   rule_version_record_limit: "5"
+# unified_alerting:
+#   enabled: true
+#   rule_version_record_limit: "5"
 
 ## Grafana's LDAP configuration
 ## Templated by the template in _helpers.tpl
@@ -1122,18 +1127,18 @@ sidecar:
     sha: ""
   imagePullPolicy: IfNotPresent
   resources: {}
-#   limits:
-#     cpu: 100m
-#     memory: 100Mi
-#   requests:
-#     cpu: 50m
-#     memory: 50Mi
+  #   limits:
+  #     cpu: 100m
+  #     memory: 100Mi
+  #   requests:
+  #     cpu: 50m
+  #     memory: 50Mi
   # @schema skipProperties:true;additionalProperties:true
   securityContext:
     allowPrivilegeEscalation: false
     capabilities:
       drop:
-      - ALL
+        - ALL
     seccompProfile:
       type: RuntimeDefault
     readOnlyRootFilesystem: true
@@ -1349,9 +1354,9 @@ sidecar:
       # @schema type:[string, integer]
       orgid: 1
       # folder in which the dashboards should be imported in grafana
-      folder: ''
+      folder: ""
       # <string> folder UID. will be automatically generated if not specified
-      folderUid: ''
+      folderUid: ""
       # type of the provider
       type: file
       # disableDelete to activate a import-only behaviour
@@ -1724,7 +1729,7 @@ imageRenderer:
     seccompProfile:
       type: RuntimeDefault
     capabilities:
-      drop: ['ALL']
+      drop: ["ALL"]
     allowPrivilegeEscalation: false
     privileged: false
     readOnlyRootFilesystem: true
@@ -1734,9 +1739,9 @@ imageRenderer:
   # image-renderer deployment Host Aliases
   hostAliases: []
   # image-renderer deployment priority class
-  priorityClassName: ''
+  priorityClassName: ""
   # Path to the healthcheck endpoint. On Image Renderer v5.0.0 or newer, this is '/healthz'. Older versions use '/'.
-  healthcheckPath: '/healthz'
+  healthcheckPath: "/healthz"
   # image-renderer container readinessProbe. Disabled by default.
   # readinessProbe:
   #   httpGet:
@@ -1747,7 +1752,7 @@ imageRenderer:
     # Enable the image-renderer service
     enabled: true
     # image-renderer service port name
-    portName: 'http'
+    portName: "http"
     # image-renderer service port used by both service and deployment
     port: 8081
     targetPort: 8081
@@ -1799,12 +1804,12 @@ imageRenderer:
     # Allow additional services to access image-renderer (eg. Prometheus operator when ServiceMonitor is enabled)
     extraIngressSelectors: []
   resources: {}
-#   limits:
-#     cpu: 100m
-#     memory: 100Mi
-#   requests:
-#     cpu: 50m
-#     memory: 50Mi
+  #   limits:
+  #     cpu: 100m
+  #     memory: 100Mi
+  #   requests:
+  #     cpu: 50m
+  #     memory: 50Mi
   ## Node labels for pod assignment
   ## ref: https://kubernetes.io/docs/user-guide/node-selection/
   #
@@ -1976,4 +1981,3 @@ verticalPodAutoscaler:
   maxAllowed:
     cpu: "1000m"
     memory: "1Gi"
-

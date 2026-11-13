@@ -10,6 +10,7 @@ setup_helm_repos:
 	helm repo add prometheus-community https://prometheus-community.github.io/helm-charts
 	helm repo add vm https://victoriametrics.github.io/helm-charts/
 	helm repo add grafana-community https://grafana-community.github.io/helm-charts
+	helm repo add grafana https://grafana.github.io/helm-charts
 
 	helm repo update
 

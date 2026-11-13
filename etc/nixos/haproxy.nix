@@ -26,17 +26,18 @@
         http-request set-header X-Forwarded-Proto https
 
         acl is_git hdr(host),host_only -i git.homeserver.local
-        use_backend app if is_git
-        default_backend kube_ingress
+        use_backend gitea if is_git
 
-        default_backend app
+        acl is_loki hdr(host),host_only -i loki.homeserver.local
+        use_backend loki if is_loki
 
-      backend app
+        default_backend loki
+
+      backend gitea
         server app1 127.0.0.1:3000 check
 
-      # not used
-      backend kube_ingress
-        server other1 192.168.0.100:443 check
+      backend loki
+        server app1 127.0.0.1:3100 check
     '';
   };
 }
