@@ -15,13 +15,13 @@ setup_helm_repos:
 	helm repo update
 
 install_ingress:
-	helm upgrade --install ingress-nginx ingress-nginx/ingress-nginx --namespace ingress-nginx --version 4.15.1 -f ingress-nginx.yaml
+	helm upgrade -i ingress-nginx ingress-nginx/ingress-nginx -n ingress-nginx --version 4.15.1 -f ingress-nginx.yaml
 
 install_argo_cd:
-	helm upgrade --install argo-cd argo/argo-cd --namespace argocd --version 10.10.5 -f argo-cd.yaml
+	helm upgrade -i argo-cd argo/argo-cd -n argocd --version 10.10.5 -f argo-cd.yaml
 
 diff_argo_cd:
-	helm diff upgrade argo-cd argo/argo-cd --namespace argocd --version 10.10.5 --values argo-cd.yaml
+	helm diff upgrade argo-cd argo/argo-cd -n argocd --version 10.10.5 --values argo-cd.yaml
 
 generate_cert:
 	openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout homeserver.key -out homeserver.crt -subj "/CN=*.homeserver.local" -addext "subjectAltName = DNS:*.homeserver.local"
@@ -30,13 +30,16 @@ create_cert_secret:
 	kubectl create secret tls argocd-server-tls --cert=./homeserver.crt --key=./homeserver.key -n argocd 
 
 install_vm_cluster:
-	helm upgrade --install vmcluster vm/victoria-metrics-cluster --version 0.53.0 -n vm -f monitoring/victoria-metrics-cluster-values.yml
+	helm upgrade -i vmcluster vm/victoria-metrics-cluster --version 0.53.0 -n vm -f monitoring/victoria-metrics-cluster-values.yml
 
 install_vm_agent:
-	helm upgrade --install vmagent vm/victoria-metrics-agent --version 0.50.0 -n vm -f monitoring/guide-vmcluster-vmagent-values.yaml
+	helm upgrade -i vmagent vm/victoria-metrics-agent --version 0.50.0 -n vm -f monitoring/guide-vmcluster-vmagent-values.yaml
 
 install_grafana:
-	helm upgrade --install grafana grafana-community/grafana --version 14.0.1 -n vm -f monitoring/grafana.yaml
+	helm upgrade -i grafana grafana-community/grafana --version 14.0.1 -n vm -f monitoring/grafana.yaml
+
+install_promtail:
+	helm upgrade -i promtail grafana/promtail -n vm -f promtail.yaml --version 6.17.1
 
 get_argocd_admin_password:
 	kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath="{.data.password}" | base64 -d
