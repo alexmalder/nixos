@@ -11,19 +11,20 @@
 7. kube-scheduler
 8. kubelet
 
-## helm repositories
+## structure
 
-```bash
-❯ helm repo ls
-NAME                    URL                                               
-ingress-nginx           https://kubernetes.github.io/ingress-nginx        
-argo                    https://argoproj.github.io/argo-helm              
-sentry                  https://sentry-kubernetes.github.io/charts        
-gitea                   https://dl.gitea.com/charts                       
-prometheus-community    https://prometheus-community.github.io/helm-charts
-vm                      https://victoriametrics.github.io/helm-charts/    
-grafana-community       https://grafana-community.github.io/helm-charts   
-```
+1. Gitea server used as docker and helm storage (easy to use).
+2. System logs scraped with vector from host.
+3. Kubernetes logs scraped with promtail from kubernetes.
+4. All logs sending to loki on host.
+5. Kubernetes metrics send with vm-agent to victoria-metrics (kubernetes).
+
+- grafana (k8s)
+  - loki (nixos)
+    - promtail (k8s)
+    - vector (nixos)
+  - victoria-metrics (k8s)
+    - vm-agent (k8s)
 
 ## create sentry app from git
 
