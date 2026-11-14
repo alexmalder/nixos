@@ -819,7 +819,7 @@ datasources:
       - name: Loki
         type: loki
         access: proxy
-        url: https://loki.homeserver.local
+        url: http://192.168.0.90:3100
         basicAuth: false
         jsonData:
           insecureSkipVerify: true
@@ -988,6 +988,9 @@ dashboards:
       datasource: victoriametrics
     kubernetes:
       gnetId: 14205
+      datasource: victoriametrics
+    node-exporter:
+      gnetId: 1860
       datasource: victoriametrics
   # default:
   #   some-dashboard:
