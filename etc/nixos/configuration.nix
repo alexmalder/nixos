@@ -14,7 +14,7 @@
       ./gitea.nix
       ./haproxy.nix
       #./kubernetes-single-node.nix
-      ./logging.nix
+      ./vector.nix
     ];
 
   # Use the systemd-boot EFI boot loader.
@@ -111,6 +111,11 @@
   security.pki.certificateFiles = [
     /etc/nixos/certs/homeserver.crt
   ];
+
+  services.loki = {
+    enable = true;
+    configFile = ./loki-config.yaml;
+  };
 
   services.prometheus.exporters.node = {
     enable = true;
