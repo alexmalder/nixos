@@ -1,0 +1,12 @@
+---
+stages:
+  - test
+
+test-job:
+  stage: test
+  script:
+    - hostname
+    - sudo nixos-rebuild dry-build
+  tags:
+    - nixos-vm
+
