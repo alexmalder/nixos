@@ -13,8 +13,8 @@
       ./video.nix
       ./gitea.nix
       ./haproxy.nix
-      ./kubernetes-single-node.nix
-      ./logging.nix
+      #./kubernetes-single-node.nix
+      ./vector.nix
     ];
 
   # Use the systemd-boot EFI boot loader.
@@ -106,21 +106,26 @@
     "flakes" 
   ];
 
-  # virtualisation.docker.enable = true;
+  virtualisation.docker.enable = true;
 
   security.pki.certificateFiles = [
     /etc/nixos/certs/homeserver.crt
   ];
 
-  # services.prometheus.exporters.systemd = {
-  #   enable = true;
-  #   port = 9558;
-  # };
+  services.loki = {
+    enable = true;
+    configFile = ./loki-config.yaml;
+  };
 
   services.prometheus.exporters.node = {
     enable = true;
     port = 9000;
   };
+
+  # services.prometheus.exporters.systemd = {
+  #   enable = true;
+  #   port = 9558;
+  # };
 
   boot.kernelParams = [ "systemd.swap=0" ];
 

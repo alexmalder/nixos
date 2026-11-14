@@ -13,11 +13,12 @@
   # Setup /etc/hosts
   networking.hosts = {
     # ingress
-    "192.168.0.100" = [ 
+    #"192.168.0.100" = [ 
+    "192.168.0.91" = [ 
       "argocd.homeserver.local" 
       "grafana.homeserver.local"
-      "kubernetes.default.svc"
       "vminsert.homeserver.local"
+      "kubernetes.default.svc"
     ];
     # haproxy
     "192.168.0.90" = [

@@ -12,10 +12,7 @@ in {
 
   # 2. Install essential administration tools
   environment.systemPackages = with pkgs; [
-    kubectl
     kubernetes
-    kubernetes-helm
-    argocd
     nerdctl
   ];
 

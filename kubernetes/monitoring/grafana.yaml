@@ -549,14 +549,14 @@ extraContainerVolumes: []
 ##
 persistence:
   type: pvc
-  enabled: false
+  enabled: true
   # storageClassName: default
   ## (Optional) Use this to bind the claim to an existing PersistentVolume (PV) by name.
   volumeName: ""
   accessModes:
     - ReadWriteOnce
   # @schema type:[string, integer]
-  size: 10Gi
+  size: 1Gi
   # annotations: {}
   finalizers:
     - kubernetes.io/pvc-protection
@@ -989,9 +989,9 @@ dashboards:
     kubernetes:
       gnetId: 14205
       datasource: victoriametrics
-    node-exporter:
-      gnetId: 1860
-      datasource: victoriametrics
+    #node-exporter:
+    #  gnetId: 1860
+    #  datasource: victoriametrics
   # default:
   #   some-dashboard:
   #     json: |

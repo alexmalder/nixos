@@ -48,7 +48,6 @@
     k9s
     dpkg
     gparted
-    kubectl
     hugo
     p7zip
     calibre
@@ -58,6 +57,9 @@
     openssl_4_0
     net-tools
     xray
+    kubectl
+    kubernetes-helm
+    argocd
 
     # golang
     go
