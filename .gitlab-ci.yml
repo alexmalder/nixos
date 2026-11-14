@@ -6,6 +6,7 @@ test-job:
   stage: test
   script:
     - hostname
+    - helm plugin install https://github.com/databus23/helm-diff
     - cd ./kubernetes
     - make diff_argo_cd
   tags:
