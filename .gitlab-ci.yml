@@ -6,7 +6,8 @@ test-job:
   stage: test
   script:
     - hostname
-    - sudo nixos-rebuild dry-build
+    - cd ./kubernetes
+    - make diff_argo_cd
   tags:
     - nixos-vm
 
