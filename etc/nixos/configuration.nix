@@ -13,7 +13,7 @@
       ./video.nix
       ./gitea.nix
       ./haproxy.nix
-      ./kubernetes-single-node.nix
+      #./kubernetes-single-node.nix
       ./logging.nix
     ];
 
@@ -106,21 +106,21 @@
     "flakes" 
   ];
 
-  # virtualisation.docker.enable = true;
+  virtualisation.docker.enable = true;
 
   security.pki.certificateFiles = [
     /etc/nixos/certs/homeserver.crt
   ];
 
-  # services.prometheus.exporters.systemd = {
-  #   enable = true;
-  #   port = 9558;
-  # };
-
   services.prometheus.exporters.node = {
     enable = true;
     port = 9000;
   };
+
+  # services.prometheus.exporters.systemd = {
+  #   enable = true;
+  #   port = 9558;
+  # };
 
   boot.kernelParams = [ "systemd.swap=0" ];
 
