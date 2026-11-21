@@ -1,0 +1,31 @@
+vim.opt.scrollback = 0
+vim.opt.tabstop=2
+vim.opt.shiftwidth = 2
+vim.opt.expandtab = true
+vim.opt.hidden = true
+vim.opt.conceallevel = 1
+vim.opt.concealcursor = 'niv'
+vim.opt.path = vim.opt.path + ',.,..,/usr/include,./include,../include,*'
+vim.opt.hidden = true
+vim.opt.backup = false
+vim.opt.writebackup = true
+vim.opt.hlsearch = true
+vim.opt.guicursor = ""
+vim.opt.backupdir = '/tmp'
+vim.opt.directory = '/tmp'
+vim.opt.undodir = '/tmp'
+vim.opt.swapfile = false
+vim.opt.undofile = true
+vim.opt.undolevels = 1000
+vim.opt.undoreload = 10000
+vim.opt.signcolumn = "yes"
+vim.opt.number = true
+vim.opt.termguicolors = true
+vim.o.updatetime = 250
+
+--vim.api.nvim_create_autocmd("BufWritePre", {
+--  pattern = "*",
+--  callback = function(args)
+--    require("conform").format({ bufnr = args.buf })
+--  end,
+--})

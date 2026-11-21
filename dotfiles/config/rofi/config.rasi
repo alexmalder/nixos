@@ -1,0 +1,79 @@
+@theme "/dev/null"
+
+* {
+    bg:         #000000;
+    fg:         #666666;
+    fg-active:  #888888;
+    sel-bg:     #1a0808;
+    sel-fg:     #884444;
+    border-col: #222222;
+
+    background-color: transparent;
+    text-color:       @fg;
+    font:             "IosevkaTerm NFM 17";
+    margin:           0px;
+    padding:          0px;
+    spacing:          0px;
+}
+
+window {
+    background-color: @bg;
+    location:         south;
+    anchor:           south;
+    width:            100%;
+    border:           1px 0px 0px 0px;
+    border-color:     @border-col;
+}
+
+mainbox {
+    orientation: horizontal;
+    children:    [ prompt, entry, listview ];
+}
+
+prompt {
+    padding:    2px 8px;
+    text-color: @fg-active;
+}
+
+entry {
+    expand:            false;
+    width:             12em;
+    padding:           2px 8px;
+    text-color:        @fg-active;
+    placeholder:       "";
+    cursor-color:      @sel-fg;
+}
+
+listview {
+    layout:       horizontal;
+    lines:        100;
+    spacing:      4px;
+    scrollbar:    false;
+}
+
+element {
+    padding: 2px 8px;
+}
+
+element normal.normal,
+element alternate.normal {
+    background-color: transparent;
+    text-color:       @fg;
+}
+
+element selected.normal,
+element selected.active,
+element selected.urgent {
+    background-color: @sel-bg;
+    text-color:       @sel-fg;
+}
+
+element-text {
+    background-color: transparent;
+    text-color:       inherit;
+}
+
+element-icon {
+    enabled: false;
+}
+
