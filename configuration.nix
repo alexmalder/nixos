@@ -115,7 +115,6 @@
         source = ./dotfiles/config/nvim;
         recursive = true;
       };
-      "fish/config.fish".source = ./dotfiles/config/fish/config.fish;
       "tmux" = {
         source = ./dotfiles/config/tmux;
         recursive = true;

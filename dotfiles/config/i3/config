@@ -136,9 +136,10 @@ bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
 
-bindsym $mod+w exec --no-startup-id /usr/local/bin/run-or-raise.sh qutebrowser
-bindsym $mod+x exec --no-startup-id /usr/local/bin/run-or-raise.sh kitty kitty
-bindsym $mod+e exec --no-startup-id /usr/local/bin/run-or-raise.sh telegram Telegram
+set $ror $HOME/.local/bin/run-or-raise.sh
+bindsym $mod+w exec --no-startup-id $ror qutebrowser
+bindsym $mod+x exec --no-startup-id $ror kitty kitty
+bindsym $mod+e exec --no-startup-id $ror telegram Telegram
 
 assign [class="(?i)firefox"] "1: Browser"
 assign [class="(?i)qutebrowser"] "1: Browser"
