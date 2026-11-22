@@ -239,7 +239,7 @@
   #  /etc/nixos/certs/homeserver.crt
   #];
 
-  virtualisation.docker.enable = true;
+  # virtualisation.docker.enable = true;
 
   # services.prometheus.exporters.node = {
   #   enable = true;
