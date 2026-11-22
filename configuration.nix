@@ -120,6 +120,7 @@
       "i3status/config".source = ./dotfiles/config/i3status/config;
       "rofi/config.rasi".source = ./dotfiles/config/rofi/config.rasi;
       "picom/picom.conf".source = ./dotfiles/config/picom/picom.conf;
+      "dunst/dunstrc".source = ./dotfiles/config/dunst/dunstrc;
     };
     home.file = {
       ".zshrc".source = ./dotfiles/.zshrc;
