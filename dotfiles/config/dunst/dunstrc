@@ -4,9 +4,9 @@
     follow = mouse
 
     # Геометрия (ширина, высота, отступ от края экрана)
-    width = 320
+    width = 400
     height = (0, 300)
-    origin = top-right
+    origin = bottom-right
     offset = (16, 36)
 
     scale = 0
