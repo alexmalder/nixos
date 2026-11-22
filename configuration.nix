@@ -65,15 +65,6 @@
   # Recommended so GTK/Firefox apps persist settings like dialog sizes
   programs.dconf.enable = true;
 
-
-  # Enable the x11 and plasma with autologin
-  #services.xserver.enable = true;
-  #services.displayManager.sddm.enable = true;
-  #services.desktopManager.plasma6.enable = true;
-  #services.displayManager.autoLogin.enable = true;
-  #services.displayManager.autoLogin.user = "alexmalder";
-  #services.displayManager.defaultSession = "plasmax11";
-
   # Configure keymap in X11
   services.xserver.xkb = {
     layout = "us,ru";
@@ -107,6 +98,7 @@
     extraGroups = [ "networkmanager" "wheel" "docker" ];
   };
 
+  # Setup dotfiles via home-manager
   home-manager.users."alexmalder" = { pkgs, ... }: {
     home.stateVersion = "26.05";
     xdg.configFile = {
@@ -134,12 +126,8 @@
     };
   };
 
-
   # Install firefox.
   programs.firefox.enable = true;
-
-  # Install partition manager
-  # programs.partition-manager.enable = true;
 
   programs.evolution.enable = true;
 
@@ -170,11 +158,11 @@
     net-tools
     cliamp
     glow
-    #go
-    #gopls 
-    #gotools
-    #virtualenv
-    #pyright
+    go
+    gopls 
+    gotools
+    virtualenv
+    pyright
     nodejs_26
     yaml-language-server
     bash-language-server
@@ -235,9 +223,20 @@
     "flakes" 
   ];
 
-  #security.pki.certificateFiles = [
-  #  /etc/nixos/certs/homeserver.crt
-  #];
+  services.transmission = {
+    enable = true;
+    package = pkgs.transmission_4;
+    user = "alexmalder"; # Defaults to "transmission"
+    group = "users";        # Defaults to "transmission"
+    downloadDirPermissions = "640"; # Optional: allows group read/write/execute
+    settings = {
+      download-dir = "/var/lib/transmission/Downloads";
+      rpc-bind-address = "127.0.0.1"; # use "0.0.0.0" for remote access
+      rpc-whitelist-enabled = true;
+    };
+  };
+
+  security.pki.certificateFiles = [ ./certs/homeserver.crt ];
 
   # virtualisation.docker.enable = true;
 
@@ -258,9 +257,4 @@
   # };
 
   boot.kernelParams = [ "systemd.swap=0" ];
-
-  #home-manager.useGlobalPkgs = true;
-  #home-manager.useUserPackages = true;
-  #home-manager.backupFileExtension = "backup";
-  #home-manager.users.alexmalder = import ./home.nix;
 }

@@ -1,6 +1,13 @@
-{ ... }:
+{ config, age, ... }:
 
 {
+  age.secrets."homeserver.pem" = {
+    file = ./secrets/homeserver.pem.age;
+    owner = "haproxy";
+    group = "haproxy";
+    mode = "0400";
+  };
+
   services.haproxy = {
     enable = true;
 
@@ -21,7 +28,7 @@
         http-request redirect scheme https code 301
 
       frontend https_in
-        bind 192.168.0.90:443 ssl crt /etc/nixos/certs/homeserver.pem
+        bind 192.168.0.90:443 ssl crt ${config.age.secrets."homeserver.pem".path}
         http-request set-header Host %[req.hdr(Host)]
         http-request set-header X-Forwarded-Proto https
 
