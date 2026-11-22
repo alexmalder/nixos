@@ -75,3 +75,29 @@ setopt CORRECT_ALL
 # fix ../
 
 setopt AUTO_CD
+
+commit() {
+  # Check if inside a git repository
+  if ! git rev-parse --is-inside-work-tree > /dev/null 2>&1; then
+    echo "Error: Not a git repository."
+    return 1
+  fi
+
+  # Prompt for commit message (Zsh read syntax)
+  read "msg?Commit message: "
+
+  # Prevent empty commit messages
+  if [[ -z "$msg" ]]; then
+    echo "Aborted: Commit message cannot be empty."
+    return 1
+  fi
+
+  # Get the current branch name
+  local branch=$(git branch --show-current)
+
+  # Stage, commit, and push
+  git add . && \
+  git commit -m "$msg" && \
+  git push -u origin "$branch"
+}
+

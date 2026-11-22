@@ -153,6 +153,7 @@
     nmap
     ncdu
     sshpass
+    gnumake
     ctop
     k9s
     net-tools

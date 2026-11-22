@@ -9,6 +9,9 @@
   };
 
   services.haproxy = {
+    after = [ "network-online.target" ];
+    wants = [ "network-online.target" ];
+
     enable = true;
 
     config = ''
