@@ -190,10 +190,22 @@
     nerd-fonts.iosevka-term
   ];
 
-  fonts.fontconfig.defaultFonts = {
-    sansSerif = [ "IosevkaTerm NFM" ];
-    monospace = [ "IosevkaTerm NFM" ];
-    serif = [ "IosevkaTerm NFM" ];
+  fonts.fontconfig = {
+    enable = true;
+    antialias = true;
+    hinting = {
+      enable = true;
+      style = "full"; # or "medium", "full"
+    };
+    subpixel = {
+      rgba = "rgb"; # match your panel ("rgb", "bgr", "vrgb", "vbgr", or "none")
+      lcdfilter = "default";
+    };
+    defaultFonts = {
+      sansSerif = [ "IosevkaTerm NFM" ];
+      monospace = [ "IosevkaTerm NFM" ];
+      serif = [ "IosevkaTerm NFM" ];
+    };
   };
 
   # Enable Zsh system-wide (required so NixOS registers it in /etc/shells)
