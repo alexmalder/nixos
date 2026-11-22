@@ -98,6 +98,6 @@ commit() {
   # Stage, commit, and push
   git add . && \
   git commit -m "$msg" && \
-  git push -u origin "$branch"
+  #git push -u origin "$branch"
 }
 
