@@ -9,8 +9,6 @@
   };
 
   services.haproxy = {
-    after = [ "network-online.target" ];
-    wants = [ "network-online.target" ];
 
     enable = true;
 
@@ -49,5 +47,10 @@
       backend loki
         server app1 127.0.0.1:3100 check
     '';
+  };
+
+  systemd.services.haproxy = {
+    after = [ "NetworkManager.service" "NetworkManager-wait-online.service" ];
+    wants = [ "NetworkManager-wait-online.service" ];
   };
 }
