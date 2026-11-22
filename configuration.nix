@@ -185,9 +185,9 @@
     obsidian
     #virt-manager
     qjackctl
-    floorp-bin
     picom
     alsa-utils
+    libreoffice
   ];
 
   fonts.packages = with pkgs; [ 
@@ -272,5 +272,5 @@
   #   options = [ "defaults" "nofail" ];
   # };
 
-  boot.kernelParams = [ "systemd.swap=0" ];
+  # boot.kernelParams = [ "systemd.swap=0" ];
 }
