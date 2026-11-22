@@ -20,7 +20,7 @@ bindkey '^ ' autosuggest-accept
 bindkey '^E' end-of-line
 
 my-backward-delete-word() {
-    local WORDCHARS=" "
+    local WORDCHARS=""
     zle backward-delete-word
 }
 zle -N my-backward-delete-word
