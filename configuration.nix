@@ -45,6 +45,7 @@
         i3status
         i3lock
         i3blocks
+        dunst
       ];
     };
   };
@@ -182,7 +183,8 @@
     obsidian
     #virt-manager
     qjackctl
-    #telegram-desktop
+    telegram-desktop
+    floorp-bin
     picom
     alsa-utils
   ];

@@ -1,0 +1,103 @@
+[global]
+    ### Отображение ###
+    monitor = 0
+    follow = mouse
+
+    # Геометрия (ширина, высота, отступ от края экрана)
+    width = 320
+    height = (0, 300)
+    origin = top-right
+    offset = (16, 36)
+
+    scale = 0
+    notification_limit = 5
+
+    ### Прогресс-бар (громкость, яркость) ###
+    progress_bar = true
+    progress_bar_height = 8
+    progress_bar_frame_width = 1
+    progress_bar_min_width = 150
+    progress_bar_max_width = 300
+    progress_bar_corner_radius = 2
+
+    ### Отступы и рамки ###
+    padding = 12
+    horizontal_padding = 14
+    text_icon_padding = 12
+    frame_width = 1
+    
+    # Цвет рамки по умолчанию и разделителя (темно-красный акцент)
+    frame_color = "#3b1c1c"
+    separator_color = frame
+    gap_size = 6
+    sort = yes
+
+    ### Текст ###
+    font = Monospace 10
+    line_height = 2
+    markup = full
+    format = "<b>%s</b>\n%b"
+    alignment = left
+    vertical_alignment = center
+    show_age_threshold = 60
+    ellipsize = middle
+    ignore_newline = no
+    stack_duplicates = true
+    hide_duplicate_count = false
+    show_indicators = yes
+
+    ### Иконки ###
+    enable_recursive_icon_lookup = true
+    icon_theme = Adwaita
+    icon_position = left
+    min_icon_size = 24
+    max_icon_size = 48
+
+    ### История ###
+    sticky_history = yes
+    history_length = 20
+
+    ### Взаимодействие ###
+    browser = /usr/bin/xdg-open
+    always_run_script = true
+    title = Dunst
+    class = Dunst
+    corner_radius = 4
+    ignore_dbusclose = false
+    force_xwayland = false
+    force_xinerama = false
+
+    # Управление мышью
+    mouse_left_click = close_current
+    mouse_middle_click = do_action, close_current
+    mouse_right_click = close_all
+
+[experimental]
+    per_monitor_dpi = false
+
+### Цветовая схема (Low Contrast) ###
+
+[urgency_low]
+    # Фоновые / тихие уведомления (глубокий темный + приглушенный текст)
+    background = "#171212"
+    foreground = "#5e4747"
+    frame_color = "#3b1c1c"
+    highlight = "#5a8280"
+    timeout = 5
+
+[urgency_normal]
+    # Обычные уведомления (черный фон + основной пыльно-розовый текст)
+    background = "#000000"
+    foreground = "#9E7878"
+    frame_color = "#3b1c1c"
+    highlight = "#9c8265"
+    timeout = 10
+
+[urgency_critical]
+    # Важные уведомления (бордовый фон + мягкий светлый текст и красный акцент)
+    background = "#3b1c1c"
+    foreground = "#c4a3a3"
+    frame_color = "#9e3c3c"
+    highlight = "#bd5555"
+    timeout = 0
+
