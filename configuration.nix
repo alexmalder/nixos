@@ -38,10 +38,13 @@
     windowManager.i3 = {
       enable = true;
       extraPackages = with pkgs; [
-        dmenu       # Default application launcher (or use rofi)
-        i3status    # Default status bar
-        i3lock      # Screen locker
-        i3blocks    # Optional block-based status bar
+        dmenu
+        lxappearance
+        feh
+        rofi
+        i3status
+        i3lock
+        i3blocks
       ];
     };
   };
@@ -176,15 +179,12 @@
     #google-chrome
     qutebrowser
     #ardour_8
-    qjackctl
+    obsidian
     #virt-manager
+    qjackctl
     #telegram-desktop
     picom
     alsa-utils
-    # i3
-    lxappearance
-    feh
-    rofi
   ];
 
   fonts.packages = with pkgs; [ 
