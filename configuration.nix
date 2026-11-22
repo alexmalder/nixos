@@ -109,7 +109,6 @@
 
   home-manager.users."alexmalder" = { pkgs, ... }: {
     home.stateVersion = "26.05";
-
     xdg.configFile = {
       "nvim" = {
         source = ./dotfiles/config/nvim;
@@ -126,8 +125,6 @@
       "rofi/config.rasi".source = ./dotfiles/config/rofi/config.rasi;
       "picom/picom.conf".source = ./dotfiles/config/picom/picom.conf;
     };
-
-    # Копирование файлов напрямую в $HOME (~/)
     home.file = {
       ".zshrc".source = ./dotfiles/.zshrc;
       ".local/bin" = {
