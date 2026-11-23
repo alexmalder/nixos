@@ -16,7 +16,7 @@
       ./haproxy.nix
       ./kubernetes-single-node.nix
       ./vector.nix
-      #./gitlab-runner.nix
+      ./gitlab-runner.nix
     ];
 
   # Use the systemd-boot EFI boot loader.
@@ -47,6 +47,8 @@
         i3blocks
         dunst
         libnotify
+        colloid-gtk-theme
+        kanagawa-gtk-theme
       ];
     };
   };
@@ -180,6 +182,7 @@
     # gui apps
     kitty
     qutebrowser
+    floorp-bin
     obsidian
     qjackctl
     picom
