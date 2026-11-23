@@ -95,7 +95,11 @@ require("lazy").setup({
   {
       'MeanderingProgrammer/render-markdown.nvim',
       dependencies = { 'nvim-treesitter/nvim-treesitter', 'nvim-tree/nvim-web-devicons' },
-      opts = {},
+      opts = {
+        heading = {
+          backgrounds = {},
+        },
+      },
   },
   {
     "metalelf0/black-metal-theme-neovim",

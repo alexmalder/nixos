@@ -5,4 +5,6 @@ in
 {
   "homeserver.pem.age".publicKeys = [ admin alexmalder ];
   "homeserver.crt.age".publicKeys = [ admin alexmalder ];
+  "homeserver.key.age".publicKeys = [ admin alexmalder ];
+  "gitlab-runner-token.age".publicKeys = [ admin alexmalder ];
 }

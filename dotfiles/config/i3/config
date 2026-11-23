@@ -130,7 +130,6 @@ bindsym $mod+Shift+r restart
 # Unified Run-or-Raise Bindings (Workspace + Default App)
 set $ror $HOME/.local/bin/run-or-raise.sh
 bindsym $mod+w exec --no-startup-id $ror $ws1 qutebrowser
-#bindsym $mod+e exec --no-startup-id $ror $ws2 telegram-desktop
 bindsym $mod+e exec --no-startup-id $ror $ws2 Telegram telegramdesktop
 bindsym $mod+x exec --no-startup-id $ror $ws3 kitty
 bindsym $mod+4 exec --no-startup-id $ror $ws4 obsidian
@@ -138,6 +137,7 @@ bindsym $mod+f exec --no-startup-id $ror $ws4 libreoffice
 
 # Keep your existing window assignments
 assign [class="(?i)firefox"] $ws1
+assign [class="(?i)floorp"] $ws1
 assign [class="(?i)qutebrowser"] $ws1
 assign [class="(?i)telegramdesktop"] $ws2
 assign [class="(?i)kitty"] $ws3
