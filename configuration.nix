@@ -179,19 +179,22 @@
 
     # gui apps
     kitty
-    #google-chrome
     qutebrowser
-    #ardour_8
     obsidian
-    #virt-manager
     qjackctl
     picom
     alsa-utils
     libreoffice
+    telegram-desktop
+    #google-chrome
+    #ardour_8
+    #virt-manager
   ];
 
   fonts.packages = with pkgs; [ 
     nerd-fonts.iosevka-term
+    noto-fonts
+    noto-fonts-color-emoji # Optional: for color emojis
   ];
 
   fonts.fontconfig = {
@@ -206,9 +209,13 @@
       lcdfilter = "default";
     };
     defaultFonts = {
-      sansSerif = [ "IosevkaTerm NFM" ];
-      monospace = [ "IosevkaTerm NFM" ];
-      serif = [ "IosevkaTerm NFM" ];
+      #sansSerif = [ "IosevkaTerm NFM" ];
+      #monospace = [ "IosevkaTerm NFM" ];
+      #serif = [ "IosevkaTerm NFM" ];
+      sansSerif = [ "Noto Sans" ];
+      serif = [ "Noto Serif" ];
+      monospace = [ "Noto Sans Mono" ];
+      emoji = [ "Noto Color Emoji" ];
     };
   };
 
