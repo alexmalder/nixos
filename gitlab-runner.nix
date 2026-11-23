@@ -54,6 +54,10 @@
           "--tls-key-file=/run/credentials/gitlab-runner.service/homeserver.key"
         ];
 
+        # Injects entries into /etc/hosts inside job containers
+        dockerExtraHosts = [
+          "kubeapi.homeserver.local:192.168.0.100"
+        ];
       };
     };
   };
